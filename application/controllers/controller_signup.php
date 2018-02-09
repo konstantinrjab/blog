@@ -11,23 +11,20 @@ class Controller_SignUp extends Controller {
 		parent::__construct();
 		$this->model = new Model_SignUp($pdo);
 		$this->view  = new View();
-
 	}
 
 	function action_index() {
-		$error = $this->model->checkError();
-
-
-		$login_password = $this->model->checkData();
+		$data['$error'] = $this->model->checkError();
+		$data = $this->model->checkData();
+		$user = new User($this->model->pdo);
+		$user->signUp($data['name'], $data['login'], $data['password']);
 
 		echo 'SESSION: ';
 		print_r($_SESSION);
 		echo '  POST: ';
 		print_r($_POST);
-		echo '  $login_password: ';
-		print_r($login_password);
-		echo '  $error: ';
-		print_r($error);
+		echo '  $data: ';
+		print_r($data);
 
 		$this->view->generate('signup_view.php', 'template_view.php', $error);
 	}

@@ -7,6 +7,7 @@
  */
 
 require_once 'core/pdo.php';
+require_once 'core/User.php';
 require_once 'core/model.php';
 require_once 'core/view.php';
 require_once 'core/controller.php';
