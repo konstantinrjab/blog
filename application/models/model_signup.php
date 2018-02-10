@@ -17,26 +17,26 @@ class Model_SignUp extends Model {
 		if (isset($_SESSION['error'])) {
 			$error = $_SESSION['error'];
 			unset($_SESSION['error']);
+			return $error;
 		} else {
-			$error = false;
+			return false;
 		}
-		return $error;
 	}
 
 	public function checkData() {
 		$login_password[] = false;
 		if ( !empty($_POST['name']) && !empty($_POST['login']) && !empty($_POST['password'])) {
 			$data = [
-				'name'    => $_POST['name'],
+				'name'     => $_POST['name'],
 				'login'    => $_POST['login'],
 				'password' => $_POST['password']
 			];
+			return $data;
 
-		} elseif (isset($_POST['login']) || isset($_POST['password'])) {
+		} elseif (isset($_POST['login']) || isset($_POST['password']) || isset($_POST['name'])) {
 			$_SESSION['error'] = 'Fill in all the fields';
-			header('Location: ');
+			header('Location: /signup');
 			return;
 		}
-		return $data;
 	}
 }

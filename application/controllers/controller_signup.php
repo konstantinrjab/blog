@@ -14,10 +14,13 @@ class Controller_SignUp extends Controller {
 	}
 
 	function action_index() {
-		$data['$error'] = $this->model->checkError();
 		$data = $this->model->checkData();
-		$user = new User($this->model->pdo);
-		$user->signUp($data['name'], $data['login'], $data['password']);
+		$error = $this->model->checkError();
+		if($data){
+			$user = new User($this->model->pdo);
+			$user->signUp($data['name'], $data['login'], $data['password']);
+		}
+		$data['error'] = $error;
 
 		echo 'SESSION: ';
 		print_r($_SESSION);
@@ -26,6 +29,6 @@ class Controller_SignUp extends Controller {
 		echo '  $data: ';
 		print_r($data);
 
-		$this->view->generate('signup_view.php', 'template_view.php', $error);
+		$this->view->generate('signup_view.php', 'template_view.php', $data);
 	}
 }
