@@ -7,28 +7,52 @@
  */
 
 class User {
+	/**
+	 * @var PDO
+	 */
+	public $pdo;
+
 	public function __construct(PDO $pdo) {
 		$this->pdo = $pdo;
 	}
 
 	public function signUp($name, $login, $password) {
-		$sql  = 'INSERT INTO user (name, position) VALUES (:n, :pos)';
-		$stmt = $this->pdo->prepare($sql);
+		$stmt = $this->pdo->prepare('SELECT * FROM password WHERE login = :lg');
 		$stmt->execute(array(
-			':n'   => $name,
-			':pos' => 'user'
+			':lg' => $login
 		));
-		$user_id = $this->pdo->lastInsertId();
-		$sql  = 'INSERT INTO password (user_id, login, password) VALUES (:ui, :l, :p)';
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute(array(
-			':ui' => $user_id,
-			':l' => $login,
-			':p' => password_hash( $password, PASSWORD_DEFAULT)
-		));
+		if ($stmt->fetch()) {
+			return false;
+		} else {
+			$sql  = 'INSERT INTO user (name, position) VALUES (:n, :pos)';
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute(array(
+				':n'   => $name,
+				':pos' => 'user'
+			));
+			$user_id = $this->pdo->lastInsertId();
+			$sql     = 'INSERT INTO password (user_id, login, password) VALUES (:ui, :l, :p)';
+			$stmt    = $this->pdo->prepare($sql);
+			$stmt->execute(array(
+				':ui' => $user_id,
+				':l'  => $login,
+				':p'  => password_hash($password, PASSWORD_DEFAULT)
+			));
+
+			return true;
+		}
 	}
 
-	public function signIn(){
-
+	public function signIn($login, $password) {
+		$stmt = $this->pdo->prepare('SELECT user_id FROM password WHERE login = :lg AND password = :pw');
+		$stmt->execute(array(
+			':lg' => $login,
+			':pw' => $password
+		));
+		if ($stmt->fetch()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -9,6 +9,7 @@
 class Model_SignUp extends Model {
 
 	public function __construct($pdo) {
+		session_start();
 		parent::__construct($pdo);
 	}
 
@@ -45,13 +46,13 @@ class Model_SignUp extends Model {
 		return $data;
 	}
 
-	public function register($data){
+	public function signIn($data){
 		$user = new User($this->pdo);
-		if ($user->signUp($data['name'], $data['login'], $data['password'])) {
-			$_SESSION['message'] = 'Successfully added';
+		if ($user->signIn($data['login'], $data['password'])) {
+			header('Location: /');
 		} else {
-			$_SESSION['error'] = 'This login is already in use';
+			$_SESSION['error'] = 'Incorrect login/password';
 		}
-		header('Location: /signup');
+		header('Location: /signin');
 	}
 }

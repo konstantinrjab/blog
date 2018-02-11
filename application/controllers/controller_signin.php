@@ -17,7 +17,7 @@ class Controller_SignUp extends Controller {
 		$flash = $this->model->checkFlash();
 		$data  = $this->model->checkData();
 		if ($data) {
-			$this->model->register($data);
+			$this->model->signIn($data);
 		}
 
 		if (isset($flash)) {
