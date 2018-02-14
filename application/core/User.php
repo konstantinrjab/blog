@@ -48,10 +48,13 @@ class User {
 		$stmt->execute(array(
 			':lg' => $login,
 		));
-//		':pw' => password_verify($password, )
+//		':pw' => password_verify($password, )       [0]['user_id']
+		$user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+//		print_r($user_data);
 
-		if (!empty($stmt->fetch())) {
-//			var_dump($stmt->fetch());
+//		$test = password_verify($password, $user_data['password']);
+//		var_dump($test);
+		if (password_verify($password, $user_data['password'])) {
 			return true;
 		} else {
 			return false;

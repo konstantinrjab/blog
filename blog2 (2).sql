@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 10 2018 г., 13:16
+-- Время создания: Фев 14 2018 г., 17:07
 -- Версия сервера: 5.5.50
 -- Версия PHP: 7.0.8
 
@@ -35,13 +35,6 @@ CREATE TABLE IF NOT EXISTS `article` (
   `text` text
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `article`
---
-
-INSERT INTO `article` (`article_id`, `title`, `tag_id`, `author_id`, `date`, `text`) VALUES
-(1, 'olololoTITLE', 1, 1, '2018-01-22', 'olololoTEXT');
-
 -- --------------------------------------------------------
 
 --
@@ -59,7 +52,8 @@ CREATE TABLE IF NOT EXISTS `password` (
 --
 
 INSERT INTO `password` (`user_id`, `login`, `password`) VALUES
-(1, 'admin', 'konkon');
+(176, 'user', '$2y$10$LGp22eqMYuToTp8Pomd0JuIiP6HhUb38t8c3.Syn0MHXY/1Lbzkjm'),
+(177, 'admin', '$2y$10$5UnLhXiamFPwaWSisjpEIuG8hr5AIJVFSs4mpEsdtdmVN9STdoDCG');
 
 -- --------------------------------------------------------
 
@@ -89,14 +83,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`user_id`, `name`, `position`) VALUES
-(1, 'kon', 'admin');
+(176, 'valentin', 'user'),
+(177, 'kon', 'admin');
 
 --
 -- Индексы сохранённых таблиц
@@ -148,7 +143,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=151;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=178;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
