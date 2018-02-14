@@ -30,7 +30,7 @@ class Model_SignUp extends Model {
 		if (empty($_POST)) {
 			return false;
 		}
-		if ( !empty($_POST['name']) && !empty($_POST['login']) && !empty($_POST['password'])) {
+		if ( !empty(trim($_POST['name'])) && !empty(trim($_POST['login'])) && !empty($_POST['password'])) {
 			$data = [
 				'name'     => $_POST['name'],
 				'login'    => $_POST['login'],

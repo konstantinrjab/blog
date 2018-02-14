@@ -44,15 +44,21 @@ class User {
 	}
 
 	public function signIn($login, $password) {
-		$stmt = $this->pdo->prepare('SELECT user_id FROM password WHERE login = :lg AND password = :pw');
+		$stmt = $this->pdo->prepare('SELECT user_id, password FROM password WHERE login = :lg');
 		$stmt->execute(array(
 			':lg' => $login,
-			':pw' => $password
 		));
-		if ($stmt->fetch()) {
+//		':pw' => password_verify($password, )
+
+		if (!empty($stmt->fetch())) {
+//			var_dump($stmt->fetch());
 			return true;
 		} else {
 			return false;
 		}
+	}
+	public function logOut(){
+		unset($_SESSION['auth']);
+		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 }
