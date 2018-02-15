@@ -17,26 +17,30 @@ class Admin extends User {
 		$this->pdo = $pdo;
 	}
 
-	public function checkRights() {
+	public function checkAdmin() {
 		$stmt = $this->pdo->prepare('SELECT user.position FROM user  JOIN password ON user.user_id = password.user_id WHERE login = :lg');
 		$stmt->execute(array(
 			':lg' => $_SESSION['auth'],
 		));
-		if ($stmt->fetch(PDO::FETCH_ASSOC)) {
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if ($result['position'] == 'admin') {
 			return true;
 		} else {
 			return false;
-
 		}
 	}
 
-//	public function createArticle($article) {
-//		$sql  = 'INSERT INTO article VALUES (title = :title, tag_id = :tag_id, author_id = :ai, date = :d, text = :tx)';
-//		$stmt = $this->pdo->prepare($sql);
-//		$stmt->execute(array(
-//			':title' => $article['title'],
-//		));
-//	}
+	public function createArticle($article) {
+		$author = $this->getUserId();
+		$sql  = 'INSERT INTO article (title, author_id, date, text) VALUES ( :title, :ai, :d, :text)';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute(array(
+			':title' => $article['title'],
+			':text' => $article['text'],
+			':ai' => $author,
+			':d' => date('Y-m-d H:i:s'),
+		));
+	}
 
 	public function updateArticle() {
 

@@ -57,6 +57,19 @@ class User {
 		}
 	}
 
+	public function getUserId() {
+		if ($_SESSION['auth']) {
+			$stmt = $this->pdo->prepare('SELECT user.user_id FROM user  JOIN password ON user.user_id = password.user_id');
+			$stmt->execute(array(
+				':lg' => $_SESSION['auth'],
+			));
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			return $result['user_id'];
+		} else {
+			return false;
+		}
+	}
+
 	public function logOut() {
 		unset($_SESSION['auth']);
 		header('Location: '.$_SERVER['HTTP_REFERER']);

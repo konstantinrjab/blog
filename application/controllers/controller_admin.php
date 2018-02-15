@@ -15,7 +15,7 @@ class Controller_Admin extends Controller {
 		$this->view  = new View();
 
 		$user = new Admin($this->model->pdo);
-		if(!$user->checkRights()){
+		if(!$user->checkAdmin()){
 			$_SESSION['error'] = 'you don\'t have permission';
 			header('Location: http://'.$_SERVER['SERVER_NAME']);
 		}
