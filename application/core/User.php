@@ -48,19 +48,16 @@ class User {
 		$stmt->execute(array(
 			':lg' => $login,
 		));
-//		':pw' => password_verify($password, )       [0]['user_id']
 		$user_data = $stmt->fetch(PDO::FETCH_ASSOC);
-//		print_r($user_data);
 
-//		$test = password_verify($password, $user_data['password']);
-//		var_dump($test);
 		if (password_verify($password, $user_data['password'])) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	public function logOut(){
+
+	public function logOut() {
 		unset($_SESSION['auth']);
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}

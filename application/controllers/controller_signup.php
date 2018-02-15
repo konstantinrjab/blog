@@ -25,8 +25,6 @@ class Controller_SignUp extends Controller {
 			$data['message'] = $flash['message'];
 		}
 
-		print_r($_SESSION);
-
 		$this->view->generate('signup_view.php', 'template_view.php', $data);
 	}
 }

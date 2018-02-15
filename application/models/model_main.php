@@ -51,7 +51,7 @@ class Model_Main extends Model {
 		}
 		if (empty($_POST['login']) || empty($_POST['password'])) {
 			$_SESSION['error'] = 'Empty field';
-			header('Location: http://blog-route/');
+			header('Location: '.$_SERVER['HTTP_REFERER']);
 		} else {
 			$this->signIn($_POST['login'], $_POST['password']);
 		}
@@ -65,7 +65,7 @@ class Model_Main extends Model {
 		} else {
 			$_SESSION['error'] = 'Incorrect login/password';
 		}
-		header('Location: http://blog-route/');
+		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 
 

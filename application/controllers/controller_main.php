@@ -21,14 +21,8 @@ class Controller_Main extends Controller {
 		$this->model->checkSignIn();
 		$this->model->checkLogOut();
 
-		print_r($_POST);
 		print_r($_SESSION);
-
-		echo '$data = ';
-		print_r($data);
-
 		$data['articles'] = $this->model->get_articles();
-//		unset($_SESSION['login']);
 		$this->view->generate('main_view.php', 'template_view.php', $data);
 	}
 
