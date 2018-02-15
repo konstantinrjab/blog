@@ -14,11 +14,7 @@ class Model_Admin extends Model {
 	}
 
 	public function get_articles() {
-		$stmt     = $this->pdo->query('SELECT title, date, text, user.name FROM article 
-JOIN tag JOIN user ON article.tag_id = tag.tag_id AND article.author_id = user.user_id');
-		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-		return $articles;
+		parent::get_articles();
 	}
 
 	public function checkArticle() {
