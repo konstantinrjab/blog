@@ -24,6 +24,7 @@ class Controller_Admin extends Controller {
 	function action_index() {
 
 		$data['articles'] = $this->model->get_articles();
+		print_r($data);
 		$this->view->generate('admin_view.php', 'template_view.php', $data);
 	}
 
