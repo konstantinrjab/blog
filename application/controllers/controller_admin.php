@@ -31,7 +31,7 @@ class Controller_Admin extends Controller {
 		if($article = $this->model->checkArticle()){
 			$user->createArticle($article);
 			$_SESSION['message'] = 'Successfully added';
-			header('Location: admin/');
+			header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin');
 		}
 		$this->view->generate('admin_article.php', 'template_view.php');
 	}
