@@ -15,17 +15,29 @@
     </div>
     <div class="col-12">
         <h3>Articles</h3>
-
+        <table class="table table-striped bg-light">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Published</th>
+                <th scope="col">Author</th>
+                <th scope="col">Tags</th>
+            </tr>
+            </thead>
+            <tbody>
 		<?php
 		foreach ($data['articles'] as $article) : ?>
-            <div class="article">
-                <p class="d-inline"><?= $article['title'] ?>; </p>
-                <p class="date d-inline">Published: <?= $article['date'] ?>; </p>
-                <p class="author d-inline">Author: <?= $article['name'] ?>; </p>
-                <p class="tag d-inline">Tags: </p>
-            </div>
+            <tr>
+                <th scope="row"><?= $article['title'] ?></th>
+                <td><?= $article['date'] ?></td>
+                <td><?= $article['name'] ?></td>
+                <td><?= $article['tags'] ?></td>
+            </tr>
 		<?php endforeach; ?>
 
+
+            </tbody>
+        </table>
     </div>
 
 </div>

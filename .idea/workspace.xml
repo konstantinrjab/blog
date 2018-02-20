@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/controller_admin.php" afterPath="$PROJECT_DIR$/application/controllers/controller_admin.php" />
-      <change beforePath="$PROJECT_DIR$/application/core/Admin.php" afterPath="$PROJECT_DIR$/application/core/Admin.php" />
       <change beforePath="$PROJECT_DIR$/application/views/admin_view.php" afterPath="$PROJECT_DIR$/application/views/admin_view.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/main_view.php" afterPath="$PROJECT_DIR$/application/views/main_view.php" />
-      <change beforePath="$PROJECT_DIR$/sql.sql" afterPath="$PROJECT_DIR$/sql.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,8 +70,8 @@
       <file leaf-file-name="admin_view.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="258">
+              <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -306,7 +302,7 @@
       <workItem from="1518616281418" duration="6898000" />
       <workItem from="1518682377279" duration="7600000" />
       <workItem from="1518705152916" duration="6626000" />
-      <workItem from="1519136334590" duration="5627000" />
+      <workItem from="1519136334590" duration="6038000" />
     </task>
     <task id="LOCAL-00001" summary="signUp">
       <created>1518170974885</created>
@@ -378,11 +374,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519138428029</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add tags">
+      <created>1519141974422</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1519141974422</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85086000" />
+    <option name="totallyTimeSpent" value="85497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -447,7 +450,8 @@
     <MESSAGE value="tag nw" />
     <MESSAGE value="add article without tag" />
     <MESSAGE value="display articles" />
-    <option name="LAST_COMMIT_MESSAGE" value="display articles" />
+    <MESSAGE value="add tags" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tags" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        <state relative-caret-position="258">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding />
         </state>
       </provider>
