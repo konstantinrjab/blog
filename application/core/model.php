@@ -17,8 +17,9 @@ class Model {
 	}
 
 	public function get_articles() {
-		$stmt     = $this->pdo->query('SELECT title, date, text, user.name FROM article 
-JOIN tag JOIN user ON article.article_id = tag.article_id AND article.author = user.user_id');
+//		$stmt     = $this->pdo->query('SELECT title, date, text, user.name FROM article
+//JOIN tag JOIN user ON article.article_id = tag.article_id AND article.author = user.user_id');
+		$stmt     = $this->pdo->query('SELECT * FROM article JOIN user on article.author = user.user_id');
 		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $articles;

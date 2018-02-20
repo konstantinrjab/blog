@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!--    <link rel="icon" href="favicon.ico" type="image/x-icon">-->
     <title>Главная</title>
 </head>
 <body>

@@ -47,10 +47,25 @@ class Admin extends User {
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute(array(
 			':title' => $article['title'],
-			':text' => $article['text'],
-			':au' => $author,
-			':d' => date('Y-m-d H:i:s'),
+			':text'  => $article['text'],
+			':au'    => $author,
+			':d'     => date('Y-m-d H:i:s'),
 		));
+
+		//add tags
+		$article_id = $this->pdo->lastInsertId();
+		$tags       = [
+			'test',
+			'firstTag'
+		];
+		foreach ($tags as $tag) {
+			$sql  = 'INSERT INTO tag (article_id, tag_id) VALUES ( :ai, :ti)';
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute(array(
+				':ai' => $article_id,
+				':ti' => $tag
+			));
+		}
 	}
 
 	public function updateArticle() {
