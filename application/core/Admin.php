@@ -38,7 +38,6 @@ class Admin extends User {
 		));
 
 		//add tags
-//		print_r($article);
 		$article_id = $this->pdo->lastInsertId();
 		foreach ($article['tags'] as $tag) {
 			$this->addTag($article_id, $tag);
@@ -53,7 +52,6 @@ class Admin extends User {
 		$tag_id = $stmt->fetch(PDO::FETCH_ASSOC);
 		$tag_id = $tag_id['tag_id'];
 
-
 		if ( !$tag_id) {
 			$stmt = $this->pdo->prepare('INSERT INTO tag_name(tag_name) VALUES( :tag)');
 			$stmt->execute(array(
@@ -61,8 +59,6 @@ class Admin extends User {
 			));
 			$tag_id = $this->pdo->lastInsertId();
 		}
-//		echo 'tag id: ';
-//		var_dump($tag_id);
 		$sql  = 'INSERT INTO tag (article_id, tag_id) VALUES ( :ai, :ti)';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute(array(

@@ -22,7 +22,7 @@
 
             <div class="article">
                 <div class="header">
-                    <h3 class="title"><?= $article['title'] ?></h3>
+                    <h3 class="title"><a href="/article/<?=$article['article_id']?>"><?= $article['title'] ?></a></h3>
                     <p class="date d-inline">Published: <?= $article['date'] ?>; </p>
                     <p class="author d-inline">Author: <?= $article['name'] ?>; </p>
                     <p class="tag d-inline">Tags:

@@ -17,21 +17,34 @@ class Model {
 	}
 
 	public function get_articles() {
-//		$stmt     = $this->pdo->query('SELECT article.title, article.date, article.text, user.name, tag_name.tag_name FROM article JOIN user on article.author = user.user_id JOIN tag ON article.article_id = tag.article_id JOIN tag_name ON tag.tag_id = tag_name.tag_id');
 		$stmt     = $this->pdo->query('SELECT article.article_id, article.title, article.date, article.text, user.name FROM article JOIN user ON article.author = user.user_id');
 		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($articles as &$article) {
-			$stmt           = $this->pdo->prepare('SELECT tag_name.tag_name FROM tag JOIN tag_name ON tag.tag_id = tag_name.tag_id WHERE article_id = :ai');
+			$stmt = $this->pdo->prepare('SELECT tag_name.tag_name FROM tag JOIN tag_name ON tag.tag_id = tag_name.tag_id WHERE article_id = :ai');
 			$stmt->execute(array(
 				':ai' => $article['article_id']
 			));
-//			print_r($stmt->fetchAll(PDO::FETCH_ASSOC));
 			$article['tag'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		}
-		print_r($articles);
-//		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $articles;
+	}
+
+	public function get_article($id) {
+		$stmt = $this->pdo->prepare('SELECT article.article_id, article.title, article.date, article.text, user.name FROM article JOIN user ON article.author = user.user_id WHERE article.article_id = :id');
+		$stmt->execute(array(
+			':id' => $id
+		));
+		$article = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//		$stmt = $this->pdo->prepare('SELECT tag.tag_id FROM tag JOIN tag_name ON tag.tag_id = tag_name.tag_id WHERE article_id = :ai');
+		$stmt = $this->pdo->prepare('SELECT tag_name.tag_name FROM tag_name JOIN tag ON tag_name.tag_id = tag.tag_id WHERE article_id = :ai');
+		$stmt->execute(array(
+			':ai' => $article['article_id']
+		));
+		$article['tag'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+		return $article;
 	}
 }
