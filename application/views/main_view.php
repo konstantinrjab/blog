@@ -25,7 +25,11 @@
                     <h3 class="title"><?= $article['title'] ?></h3>
                     <p class="date d-inline">Published: <?= $article['date'] ?>; </p>
                     <p class="author d-inline">Author: <?= $article['name'] ?>; </p>
-                    <p class="tag d-inline">Tags: </p>
+                    <p class="tag d-inline">Tags:
+                        <?php foreach($article['tag'] as $tag) {
+                            echo $tag['tag_name'].', ';
+                        }?>
+                    </p>
                 </div>
                 <div class="body">
                     <p><?= $article['text'] ?></p>

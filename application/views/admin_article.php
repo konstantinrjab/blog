@@ -23,7 +23,5 @@
             </div>
             <input type="submit" class="btn btn-primary" placeholder="Add">
         </form>
-
     </div>
-
 </div>

@@ -23,7 +23,10 @@ class Model_Admin extends Model {
 		} else {
 			$article['title'] = $_POST['title'];
 			$article['text'] = $_POST['text'];
-			$article['tag'] = $_POST['tag'];
+			$article['tags'] = explode(',', $_POST['tag']);
+			foreach($article['tags'] as $tag){
+				trim($tag);
+			}
 			return $article;
 		}
 	}

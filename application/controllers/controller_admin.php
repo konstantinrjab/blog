@@ -33,6 +33,7 @@ class Controller_Admin extends Controller {
 			$_SESSION['message'] = 'Successfully added';
 			header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin');
 		}
+
 		$this->view->generate('admin_article.php', 'template_view.php');
 	}
 }
