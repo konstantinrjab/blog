@@ -14,12 +14,7 @@ class Admin extends User {
 	}
 
 	public function checkAdmin() {
-		$stmt = $this->pdo->prepare('SELECT user.position FROM user WHERE login = :lg');
-		$stmt->execute(array(
-			':lg' => $_SESSION['auth'],
-		));
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		if ($result['position'] == 'admin') {
+		if ($this->position == 'admin') {
 			return true;
 		} else {
 			return false;

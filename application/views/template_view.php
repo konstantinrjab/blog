@@ -34,9 +34,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Features</a>
                         </li>
+                        <?php if($_SESSION['user']['position'] == 'admin') : ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a href="admin" class="nav-link">Admin panel</a>
                         </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </nav>

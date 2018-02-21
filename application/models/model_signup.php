@@ -13,17 +13,7 @@ class Model_SignUp extends Model {
 	}
 
 	public function checkFlash() {
-		if ( !empty($_SESSION['error']) || !empty($_SESSION['message'])) {
-			$flash['error'] = $_SESSION['error'];
-			unset($_SESSION['error']);
-
-			$flash['message'] = $_SESSION['message'];
-			unset($_SESSION['message']);
-
-			return $flash;
-		} else {
-			return false;
-		}
+		return parent::checkFlash();
 	}
 
 	public function checkData() {

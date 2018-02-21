@@ -11,10 +11,25 @@ class User {
 	 * @var PDO
 	 */
 	public $pdo;
+	public $id;
+	public $name;
+	public $position;
 
 	public function __construct(PDO $pdo) {
 		$this->pdo = $pdo;
+		if($_SESSION['auth']){
+			$this->id = $_SESSION['user']['id'];
+			$this->name = $_SESSION['user']['name'];
+			$this->position = $_SESSION['user']['position'];
+		} else {
+			$this->name = 'guest';
+			$this->position = 'guest';
+		}
 	}
+
+//	public function getUserData(){
+//
+//	}
 
 	public function signUp($name, $login, $password) {
 		$stmt = $this->pdo->prepare('SELECT * FROM user WHERE login = :lg');
@@ -38,13 +53,17 @@ class User {
 	}
 
 	public function signIn($login, $password) {
-		$stmt = $this->pdo->prepare('SELECT user_id, password FROM user WHERE login = :lg');
+		$stmt = $this->pdo->prepare('SELECT user_id, password, name, position FROM user WHERE login = :lg');
 		$stmt->execute(array(
 			':lg' => $login,
 		));
-		$user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		if (password_verify($password, $user_data['password'])) {
+		if (password_verify($password, $result['password'])) {
+			$_SESSION['auth'] = true;
+			$_SESSION['user']['id'] = $result['user_id'];
+			$_SESSION['user']['name'] = $result['name'];
+			$_SESSION['user']['position'] = $result['position'];
 			return true;
 		} else {
 			return false;
@@ -67,6 +86,9 @@ class User {
 
 	public function logOut() {
 		unset($_SESSION['auth']);
+		unset($_SESSION['user']['name']);
+		unset($_SESSION['user']['position']);
+		unset($_SESSION['user']['id']);
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 }

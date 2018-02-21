@@ -23,7 +23,6 @@ class Controller_Article extends Controller {
 			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
 			exit();
 		}
-//		print_r($data);
 		$data['flash'] = $this->model->checkFlash();
 		$this->view->generate('article_view.php', 'template_view.php', $data);
 

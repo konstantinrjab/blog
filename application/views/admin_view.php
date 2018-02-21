@@ -21,7 +21,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Published</th>
                 <th scope="col">Author</th>
-                <th scope="col">Tags</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -31,7 +31,8 @@
                 <th scope="row"><?= $article['title'] ?></th>
                 <td><?= $article['date'] ?></td>
                 <td><?= $article['name'] ?></td>
-                <td><?= $article['tags'] ?></td>
+                <td><a href="admin/updateArticle/<?= $article['article_id'] ?>">Update</a></td>
+                <td><a href="admin/deleteArticle/<?= $article['article_id'] ?>" class="text-danger">Delete</a></td>
             </tr>
 		<?php endforeach; ?>
 

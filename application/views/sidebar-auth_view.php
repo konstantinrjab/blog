@@ -11,6 +11,5 @@
     <p class="lead">Welcome, <?= $data['user']['name'] ?></p>
     <form method="post">
         <input type="submit" class="btn btn-primary" name="logout" id="logout" value="Log out">
-        <a href="admin" class="btn btn-primary">Admin panel</a>
     </form>
 </div>

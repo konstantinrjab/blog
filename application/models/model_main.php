@@ -15,38 +15,33 @@ class Model_Main extends Model {
 	}
 
 	public function checkFlash() {
-		if ( !empty($_SESSION['error'])) {
-			$data['error'] = $_SESSION['error'];
-			unset($_SESSION['error']);
-		} elseif ( !empty($_SESSION['message'])) {
-			$data['message'] = $_SESSION['message'];
-			unset($_SESSION['message']);
-		} else {
-			return false;
-		}
-
-		return $data;
+		return parent::checkFlash();
 	}
 
-	public function getSidebar() {
+	public function getSidebar($user) {
 		if ($_SESSION['auth']) {
-			$data['sidebar']      = 'auth';
-			$data['user']['name'] = $_SESSION['auth'];
+			if ($user->position == 'admin') {
+				$data['sidebar'] = 'admin';
+			} else {
+				$data['sidebar'] = 'auth';
+			}
+			$data['user']['name'] = $user->name;
+		} else {
+			$data['sidebar'] = false;
 		}
 
 		return $data;
 	}
 
-	public function checkLogOut() {
+	public function checkLogOut($user) {
 		if (empty($_POST['logout'])) {
 			return false;
 		} else {
-			$user = new User($this->pdo);
 			$user->logOut();
 		}
 	}
 
-	public function checkSignIn() {
+	public function checkSignIn($user) {
 		if (empty($_POST['signin'])) {
 			return false;
 		}
@@ -54,18 +49,13 @@ class Model_Main extends Model {
 			$_SESSION['error'] = 'Empty field';
 			header('Location: '.$_SERVER['HTTP_REFERER']);
 		} else {
-			$this->signIn($_POST['login'], $_POST['password']);
+			$login    = $_POST['login'];
+			$password = $_POST['password'];
+			if ( !$user->signIn($login, $password)) {
+				$_SESSION['error'] = 'Incorrect login/password';
+			}
+			header('Location: '.$_SERVER['HTTP_REFERER']);
 		}
 	}
 
-	public function signIn($login, $password) {
-
-		$user = new User($this->pdo);
-		if ($user->signIn($login, $password)) {
-			$_SESSION['auth'] = $login;
-		} else {
-			$_SESSION['error'] = 'Incorrect login/password';
-		}
-		header('Location: '.$_SERVER['HTTP_REFERER']);
-	}
 }

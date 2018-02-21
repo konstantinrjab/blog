@@ -8,7 +8,7 @@
 ?>
 <div class="row">
     <div class="col-md-3 order-md-2">
-        <?php if ($data['sidebar'] == 'auth') {
+        <?php if ($_SESSION['auth']) {
 	        include ('sidebar-auth_view.php');
         } else {
 	        include ('sidebar-guest_view.php');
@@ -38,5 +38,4 @@
 		<?php endforeach; ?>
 
     </div>
-
 </div>
