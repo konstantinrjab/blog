@@ -71,17 +71,7 @@ class User {
 	}
 
 	public function getUserId() {
-		if ($_SESSION['auth']) {
-			$stmt = $this->pdo->prepare('SELECT user_id FROM user  WHERE login = :lg');
-			$stmt->execute(array(
-				':lg' => $_SESSION['auth'],
-			));
-			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-			return $result['user_id'];
-		} else {
-			return false;
-		}
+		return $this->id;
 	}
 
 	public function logOut() {

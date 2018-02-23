@@ -9,12 +9,7 @@
 
 <div class="sidebar">
     <p class="lead">Sign in</p>
-	<?php if (isset($data['flash']['error'])) : ?>
-        <p class="lead text-danger"><?php echo $data['flash']['error']; ?></p>
-	<?php endif; ?>
-	<?php if (isset($data['flash']['message'])) : ?>
-        <p class="lead text-success"><?php echo $data['flash']['message']; ?></p>
-	<?php endif; ?>
+	<?php include "info-window.php"; ?>
     <form method="post">
         <div class="form-group">
             <label for="login">Email address</label>

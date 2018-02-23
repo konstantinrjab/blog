@@ -29,14 +29,14 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="http://<?=$_SERVER['SERVER_NAME']?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Features</a>
                         </li>
                         <?php if($_SESSION['user']['position'] == 'admin') : ?>
                         <li class="nav-item">
-                            <a href="admin" class="nav-link">Admin panel</a>
+                            <a href="http://<?=$_SERVER['SERVER_NAME']?>/admin" class="nav-link">Admin panel</a>
                         </li>
                         <?php endif; ?>
                     </ul>

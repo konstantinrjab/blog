@@ -15,7 +15,7 @@ class Controller_Admin extends Controller {
 		$this->model = new Model_Admin($pdo);
 		$this->view  = new View();
 
-		print_r($_SESSION);
+//		print_r($_SESSION);
 		$this->user = new Admin($this->model->pdo);
 		if ( !$this->user->checkAdmin()) {
 			$_SESSION['error'] = 'you don\'t have permission';
@@ -47,6 +47,20 @@ class Controller_Admin extends Controller {
 		} else {
 			$_SESSION['error'] = 'Cant delete article '.$id;
 		}
+		header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin');
+	}
+
+	function action_updateArticle() {
+		$id = $_GET['id'];
+		if(!isset($_POST['update'])){
+			$this->model->get_article($id);
+			$this->action_index();
+		} else {
+			$data['flash'] = $this->model->checkFlash();
+			$data['articles'] = $this->model->get_article($id);
+			$this->view->generate('admin_article.php', 'template_view.php', $data);
+		}
+
 		header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin');
 	}
 }

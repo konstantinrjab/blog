@@ -65,8 +65,14 @@ class Admin extends User {
 		));
 	}
 
-	public function updateArticle() {
-
+	public function updateArticle($id, $title, $tag, $text) {
+		$stmt = $this->pdo->prepare('UPDATE article SET title = :tl, text = :tx WHERE article_id = :ai');
+		$stmt->execute(array(
+			':tl' => $title,
+			':tx' => $text,
+			':ai' => $id,
+		));
+		return true;
 	}
 
 	public function deleteArticle($id) {

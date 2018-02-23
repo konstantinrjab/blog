@@ -8,6 +8,7 @@
 
 class Controller_Main extends Controller {
 	public $data;
+	public $user;
 
 	function __construct($pdo) {
 		parent::__construct();
@@ -16,12 +17,12 @@ class Controller_Main extends Controller {
 	}
 
 	function action_index() {
-		$user = new User($this->model->pdo);
+		$this->user = new User($this->model->pdo);
 //		$user->getUserData();
-		$data          = $this->model->getSidebar($user);
+		$data          = $this->model->getSidebar($this->user);
 		$data['flash'] = $this->model->checkFlash();
-		$this->model->checkSignIn($user);
-		$this->model->checkLogOut($user);
+		$this->model->checkSignIn($this->user);
+		$this->model->checkLogOut($this->user);
 
 		print_r($_SESSION);
 		$data['articles'] = $this->model->get_articles();

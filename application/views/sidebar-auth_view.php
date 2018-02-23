@@ -9,12 +9,7 @@
 
 <div class="sidebar">
     <p class="lead">Welcome, <?= $data['user']['name'] ?></p>
-	<?php if (isset($data['flash']['error'])) : ?>
-        <p class="lead text-danger"><?php echo $data['flash']['error']; ?></p>
-	<?php endif; ?>
-	<?php if (isset($data['flash']['message'])) : ?>
-        <p class="lead text-success"><?php echo $data['flash']['message']; ?></p>
-	<?php endif; ?>
+	<?php include "info-window.php"; ?>
     <form method="post">
         <input type="submit" class="btn btn-primary" name="logout" id="logout" value="Log out">
     </form>

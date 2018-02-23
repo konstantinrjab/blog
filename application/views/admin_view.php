@@ -8,16 +8,9 @@
 ?>
 <div class="row">
     <div class="col-12">
-        <a href="admin/createArticle" type="submit" class="btn btn-primary">Create Article</a>
-        <!--        <form method="get" action="admin/createArticle?">-->
-        <!--            <input type="submit" class="btn btn-primary" value="Create Article" />-->
-        <!--        </form>-->
-	    <?php if (isset($data['flash']['error'])) : ?>
-            <p class="lead text-danger"><?php echo $data['flash']['error']; ?></p>
-	    <?php endif; ?>
-	    <?php if (isset($data['flash']['message'])) : ?>
-            <p class="lead text-success"><?php echo $data['flash']['message']; ?></p>
-	    <?php endif; ?>
+        <a href="http://<?= $_SERVER['SERVER_NAME'] ?>/admin/createArticle"
+           type="submit" class="btn btn-primary">Create Article</a>
+	    <?php include "info-window.php"; ?>
     </div>
     <div class="col-12">
         <h3>Articles</h3>
@@ -31,16 +24,21 @@
             </tr>
             </thead>
             <tbody>
-		<?php
-		foreach ($data['articles'] as $article) : ?>
-            <tr>
-                <th scope="row"><?= $article['title'] ?></th>
-                <td><?= $article['date'] ?></td>
-                <td><?= $article['name'] ?></td>
-                <td><a href="admin/updateArticle/<?= $article['article_id'] ?>">Update</a></td>
-                <td><a href="admin/deleteArticle/?id=<?= $article['article_id'] ?>" class="text-danger">Delete</a></td>
-            </tr>
-		<?php endforeach; ?>
+			<?php
+			foreach ($data['articles'] as $article) : ?>
+                <tr>
+                    <th scope="row"><?= $article['title'] ?></th>
+                    <td><?= $article['date'] ?></td>
+                    <td><?= $article['name'] ?></td>
+                    <td>
+                        <a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/admin/updateArticle/?id='.$article['article_id'] ?>">Update</a>
+                    </td>
+                    <td>
+                        <a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/admin/deleteArticle/?id='.$article['article_id'] ?>"
+                           class="text-danger">Delete</a>
+                    </td>
+                </tr>
+			<?php endforeach; ?>
 
 
             </tbody>
