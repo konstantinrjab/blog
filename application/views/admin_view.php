@@ -12,6 +12,12 @@
         <!--        <form method="get" action="admin/createArticle?">-->
         <!--            <input type="submit" class="btn btn-primary" value="Create Article" />-->
         <!--        </form>-->
+	    <?php if (isset($data['flash']['error'])) : ?>
+            <p class="lead text-danger"><?php echo $data['flash']['error']; ?></p>
+	    <?php endif; ?>
+	    <?php if (isset($data['flash']['message'])) : ?>
+            <p class="lead text-success"><?php echo $data['flash']['message']; ?></p>
+	    <?php endif; ?>
     </div>
     <div class="col-12">
         <h3>Articles</h3>
@@ -32,7 +38,7 @@
                 <td><?= $article['date'] ?></td>
                 <td><?= $article['name'] ?></td>
                 <td><a href="admin/updateArticle/<?= $article['article_id'] ?>">Update</a></td>
-                <td><a href="admin/deleteArticle?id=<?= $article['article_id'] ?>" class="text-danger">Delete</a></td>
+                <td><a href="admin/deleteArticle/?id=<?= $article['article_id'] ?>" class="text-danger">Delete</a></td>
             </tr>
 		<?php endforeach; ?>
 

@@ -69,7 +69,11 @@ class Admin extends User {
 
 	}
 
-	public function deleteArticle() {
-
+	public function deleteArticle($id) {
+		$stmt = $this->pdo->prepare('DELETE FROM article WHERE article_id = :ai');
+		$stmt->execute(array(
+			':ai' => $id,
+		));
+		return true;
 	}
 }
