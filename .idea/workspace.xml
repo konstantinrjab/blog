@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/controller_article.php" afterPath="$PROJECT_DIR$/application/controllers/controller_article.php" />
-      <change beforePath="$PROJECT_DIR$/application/core/Admin.php" afterPath="$PROJECT_DIR$/application/core/Admin.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_view.php" afterPath="$PROJECT_DIR$/application/views/admin_view.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/sidebar-auth_view.php" afterPath="$PROJECT_DIR$/application/views/sidebar-auth_view.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/template_view.php" afterPath="$PROJECT_DIR$/application/views/template_view.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -287,7 +282,7 @@
       <workItem from="1519203978125" duration="14579000" />
       <workItem from="1519310547696" duration="1676000" />
       <workItem from="1519395223357" duration="39000" />
-      <workItem from="1519395366446" duration="552000" />
+      <workItem from="1519395366446" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="signUp">
       <created>1518170974885</created>
@@ -394,15 +389,21 @@
       <option name="project" value="LOCAL" />
       <updated>1519234012815</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="access users">
+      <created>1519395933585</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1519395933585</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104629000" />
+    <option name="totallyTimeSpent" value="104678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31694403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -468,7 +469,8 @@
     <MESSAGE value="tags" />
     <MESSAGE value="article view" />
     <MESSAGE value="user/session" />
-    <option name="LAST_COMMIT_MESSAGE" value="user/session" />
+    <MESSAGE value="access users" />
+    <option name="LAST_COMMIT_MESSAGE" value="access users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
