@@ -30,11 +30,11 @@ class Model_Admin extends Model {
 		}
 	}
 
-	public function updateArticle() {
-		if ($this->user->updateArticle($id, $title, $tag, $text)) {
-			$_SESSION['message'] = 'Successfully deleted';
-		} else {
-			$_SESSION['error'] = 'Cant delete article '.$id;
-		}
-	}
+//	public function updateArticle() {
+//		if ($this->user->updateArticle($id, $title, $tag, $text)) {
+//			$_SESSION['message'] = 'Successfully deleted';
+//		} else {
+//			$_SESSION['error'] = 'Cant delete article '.$id;
+//		}
+//	}
 }

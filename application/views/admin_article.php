@@ -11,17 +11,22 @@
         <form method="post">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title"
+                       value="<?= $data['article']['title'] ?>">
             </div>
             <div class="form-group">
                 <label for="tag">Tags</label>
-                <input type="text" class="form-control" id="tag" name="tag">
+				<?php foreach ($data['article']['tag'] as $tag) {
+					$tags .= $tag.',';
+				} ?>
+                <input type="text" class="form-control" id="tag" name="tag" value="<?= $tags ?>">
             </div>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" name="text" rows="10"></textarea>
+                <textarea class="form-control" id="text" name="text"
+                          rows="10"><?= $data['article']['text'] ?></textarea>
             </div>
-            <input type="submit" class="btn btn-primary" placeholder="Add">
+            <input type="submit" class="btn btn-primary" placeholder="Add" value="Submit" name="submit">
         </form>
     </div>
 </div>

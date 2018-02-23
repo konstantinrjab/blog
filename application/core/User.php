@@ -27,10 +27,6 @@ class User {
 		}
 	}
 
-//	public function getUserData(){
-//
-//	}
-
 	public function signUp($name, $login, $password) {
 		$stmt = $this->pdo->prepare('SELECT * FROM user WHERE login = :lg');
 		$stmt->execute(array(
