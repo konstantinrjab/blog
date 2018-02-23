@@ -11,13 +11,16 @@ class Admin extends User {
 	public function __construct(PDO $pdo) {
 		parent::__construct($pdo);
 		$this->pdo = $pdo;
+
+		return $this->checkAdmin();
 	}
 
-	public function checkAdmin() {
-		if ($this->position == 'admin') {
-			return true;
-		} else {
+	function checkAdmin() {
+		if ( $this->position !== 'admin') {
+			unset($this);
 			return false;
+		} else {
+			return true;
 		}
 	}
 

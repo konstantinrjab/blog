@@ -32,7 +32,7 @@
                 <td><?= $article['date'] ?></td>
                 <td><?= $article['name'] ?></td>
                 <td><a href="admin/updateArticle/<?= $article['article_id'] ?>">Update</a></td>
-                <td><a href="admin/deleteArticle/<?= $article['article_id'] ?>" class="text-danger">Delete</a></td>
+                <td><a href="admin/deleteArticle?id=<?= $article['article_id'] ?>" class="text-danger">Delete</a></td>
             </tr>
 		<?php endforeach; ?>
 

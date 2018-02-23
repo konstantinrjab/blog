@@ -17,7 +17,6 @@ class Controller_Article extends Controller {
 
 	function getArticle($id) {
 		$data['article'] = $this->model->get_article($id);
-		print_r($data);
 		if ( !array_shift($data['article'])) {
 //			$_SESSION['error'] = 'Article not found';
 			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
@@ -28,6 +27,13 @@ class Controller_Article extends Controller {
 
 	}
 
+	function deleteArticle(){
+		$user = new Admin($this->model->pdo);
+		$user->checkAdmin();
+		if(is_numeric($_GET['id'])){
+
+		}
+	}
 	function action_index() {
 
 	}
