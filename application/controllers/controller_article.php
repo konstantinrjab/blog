@@ -19,7 +19,7 @@ class Controller_Article extends Controller {
 		$this->user = new User($this->model->pdo);
 
 		$data['article'] = $this->model->get_article($id);
-		if (empty($data['article'])) {
+		if (empty($data['article']['article_id'])) {
 			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
 
 			return;

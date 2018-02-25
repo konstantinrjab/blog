@@ -25,8 +25,9 @@ $(document).ready(function () {
                     $(button).children('i').hide();
                 }
             },
-            error: function () {
-                console.log('ERROR');
+            error: function(xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
             }
         });
     });

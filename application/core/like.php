@@ -9,7 +9,7 @@
 require_once('pdo.php');
 require_once('User.php');
 session_start();
-//header('Content-Type: application/json');
+header('Content-Type: application/json');
 
 $article_id = $_POST['article_id'];
 
