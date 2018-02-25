@@ -16,12 +16,16 @@ class Controller_Article extends Controller {
 	}
 
 	function getArticle($id) {
+		$this->user = new User($this->model->pdo);
+
 		$data['article'] = $this->model->get_article($id);
-		if ( empty($data['article'])) {
+		if (empty($data['article'])) {
 			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
+
 			return;
 		}
-		$data['flash'] = $this->model->checkFlash();
+		$data['flash']    = $this->model->checkFlash();
+		$data['article']['liked'] = $this->model->getLikeStatus($data['article']['article_id'], $this->user->id);
 		$this->view->generate('article_view.php', 'template_view.php', $data);
 	}
 

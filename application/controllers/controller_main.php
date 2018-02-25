@@ -18,15 +18,15 @@ class Controller_Main extends Controller {
 
 	function action_index() {
 		$this->user = new User($this->model->pdo);
-//		$user->getUserData();
 		$data          = $this->model->getSidebar($this->user);
 		$data['flash'] = $this->model->checkFlash();
 		$this->model->checkSignIn($this->user);
 		$this->model->checkLogOut($this->user);
 
-		print_r($_SESSION);
 		$data['articles'] = $this->model->get_articles();
+		foreach ($data['articles'] as &$article) {
+			$article['liked'] = $this->model->getLikeStatus($article['article_id'], $this->user->id);
+		}
 		$this->view->generate('main_view.php', 'template_view.php', $data);
 	}
-
 }

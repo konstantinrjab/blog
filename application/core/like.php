@@ -9,10 +9,14 @@
 require_once('pdo.php');
 require_once('User.php');
 session_start();
+//header('Content-Type: application/json');
 
 $article_id = $_POST['article_id'];
 
 $user = new User($pdo);
+if(!$user->id){
+	die(json_encode('guest'));
+}
 $stmt = $pdo->prepare('SELECT 1 FROM likes WHERE article_id = :ai AND user_id = :ui');
 $stmt->execute(array(
 	':ai' => $article_id,
@@ -32,6 +36,6 @@ $stmt->execute(array(
 	':ai' => $article_id
 ));
 $count = $stmt->fetch(PDO::FETCH_NUM);
-$result['count'] = $count[0];
-$result['action'] = $action;
-echo json_encode($result);
+$json['count'] = $count[0];
+$json['action'] = $action;
+echo json_encode($json);

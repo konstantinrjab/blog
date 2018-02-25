@@ -8,10 +8,8 @@
 
 class Model_Main extends Model {
 
-
 	public function __construct($pdo) {
 		parent::__construct($pdo);
-		$this->get_articles();
 	}
 
 	public function checkFlash() {
@@ -33,17 +31,15 @@ class Model_Main extends Model {
 		return $data;
 	}
 
-	public function checkLogOut($user) {
-		if (empty($_POST['logout'])) {
-			return false;
-		} else {
+	public function checkLogOut(User $user) {
+		if (!empty($_POST['logout'])) {
 			$user->logOut();
 		}
 	}
 
-	public function checkSignIn($user) {
+	public function checkSignIn(User $user) {
 		if (empty($_POST['signin'])) {
-			return false;
+			return;
 		}
 		if (empty($_POST['login']) || empty($_POST['password'])) {
 			$_SESSION['error'] = 'Empty field';
@@ -57,5 +53,4 @@ class Model_Main extends Model {
 			header('Location: '.$_SERVER['HTTP_REFERER']);
 		}
 	}
-
 }

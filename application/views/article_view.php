@@ -36,7 +36,14 @@
                 <button class="article__like btn btn-primary" id="<?=$data['article']['article_id']?>">
                     Like
                     <span id="<?=$data['article']['article_id']?>"><?php echo $data['article']['likes'] ?></span>
-                    <i class="fa fa-heart"></i>
+                    <?php
+                    if ($data['article']['liked'] !== true) {
+                        $style = 'display: none;';
+                    } else {
+	                    $style = '';
+                    }
+                    ?>
+                    <i class="fa fa-heart" style="<?=$style?>"></i>
                 </button>
             </div>
 

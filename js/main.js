@@ -3,17 +3,20 @@ $(document).ready(function () {
     $('button.article__like').click(function () {
         var button = this;
         var article_id = $(this).attr('id');
-        // console.log('click on ' + article_id);
+        console.log('click on ' + article_id);
 
         $.ajax({
             type: 'POST',
             url: 'application/core/like.php',
+            dataType: 'json',
             data: 'article_id=' + article_id,
             success: function (data) {
-                data = $.parseJSON(data);
+                // data = $.parseJSON(data);
                 console.log(data);
+                if(data === 'guest'){
+                    alert('You have to log in');
+                }
 
-                // $('span[id="' + article_id + '"]').text(data['count']);
                 $(button).children('span').text(data['count']);
 
                 if(data['action'] === 'add'){
@@ -21,6 +24,9 @@ $(document).ready(function () {
                 } else {
                     $(button).children('i').hide();
                 }
+            },
+            error: function () {
+                console.log('ERROR');
             }
         });
     });
