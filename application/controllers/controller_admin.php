@@ -15,7 +15,6 @@ class Controller_Admin extends Controller {
 		$this->model = new Model_Admin($pdo);
 		$this->view  = new View();
 
-//		print_r($_SESSION);
 		$this->user = new Admin($this->model->pdo);
 		if ( !$this->user->checkAdmin()) {
 			$_SESSION['error'] = 'you don\'t have permission';

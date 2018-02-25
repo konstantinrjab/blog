@@ -41,5 +41,16 @@ CREATE TABLE tag (
 )
   ENGINE = InnoDB;
 
+CREATE TABLE likes (
+  article_id INT NOT NULL,
+  user_id     INT,
+  FOREIGN KEY (user_id) REFERENCES user (user_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  FOREIGN KEY (article_id) REFERENCES article (article_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+)
+  ENGINE = InnoDB;
 
 

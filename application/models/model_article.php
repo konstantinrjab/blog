@@ -18,16 +18,6 @@ class Model_Article extends Model {
 	}
 
 	public function checkFlash() {
-		if ( !empty($_SESSION['error'])) {
-			$data['error'] = $_SESSION['error'];
-			unset($_SESSION['error']);
-		} elseif ( !empty($_SESSION['message'])) {
-			$data['message'] = $_SESSION['message'];
-			unset($_SESSION['message']);
-		} else {
-			return false;
-		}
-
-		return $data;
+		return parent::checkFlash();
 	}
 }

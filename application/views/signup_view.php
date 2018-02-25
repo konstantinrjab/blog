@@ -14,12 +14,7 @@
 <div class="row">
     <div class="col-12">
         <h2>Sign Up page!</h2>
-		<?php if (isset($data['error'])) : ?>
-            <p class="lead text-danger"><?php echo $data['error']; ?></p>
-		<?php endif; ?>
-	    <?php if (isset($data['message'])) : ?>
-            <p class="lead text-success"><?php echo $data['message']; ?></p>
-	    <?php endif; ?>
+	    <?php include "info-window.php"; ?>
         <form method="post">
             <div class="form-group">
                 <label for="name">Nickname</label>
