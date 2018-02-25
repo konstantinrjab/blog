@@ -44,6 +44,9 @@ CREATE TABLE tag (
 CREATE TABLE likes (
   article_id INT NOT NULL,
   user_id    INT NOT NULL,
+
+  INDEX (article_id),
+#   CREATE INDEX article ON likes (article_id)
   FOREIGN KEY (user_id) REFERENCES user (user_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,

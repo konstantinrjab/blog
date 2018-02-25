@@ -34,7 +34,10 @@
                 <p class="article__date d-inline">Published: <?= $data['article']['date'] ?>; </p>
                 <p class="article__author d-inline">Author: <?= $data['article']['name'] ?>; </p>
                 <button class="article__like btn btn-primary" id="<?=$data['article']['article_id']?>">
-                    Like <like-count id="<?=$data['article']['article_id']?>"><?php echo $data['article']['likes'] ?></like-count></button>
+                    Like
+                    <span id="<?=$data['article']['article_id']?>"><?php echo $data['article']['likes'] ?></span>
+                    <i class="fa fa-heart"></i>
+                </button>
             </div>
 
         </div>
