@@ -80,18 +80,15 @@ WHERE article_id = :ai');
 	}
 
 	public function getLikeStatus($article_id, $user_id) {
-		//get like status
 		$stmt = $this->pdo->prepare('SELECT 1
 FROM likes
 WHERE article_id = :ai AND user_id = :ui');
-		echo 'ai = '.$article_id.'; ui '.$user_id;
 		$stmt->execute(array(
 			':ai' => $article_id,
 			':ui' => $user_id,
 		));
 
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		print_r($result);
 		if (!empty($result)) {
 			return true;
 		} else {

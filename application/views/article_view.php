@@ -6,7 +6,6 @@
  * Time: 17:33
  */
 
-//print_r($data['article']);
 ?>
 <div class="row">
     <div class="col-12">

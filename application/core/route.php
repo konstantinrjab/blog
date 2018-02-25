@@ -60,9 +60,6 @@ class Route {
 		} //поставили лайк
 		else if (method_exists($controller, 'getArticle') && empty($_POST['article_id'])) //
 		{
-			print_r($_POST);
-
-//			echo 'call getArticle';
 			$id = preg_replace('/[^0-9]/', '', $action);
 			$controller->getArticle($id);
 

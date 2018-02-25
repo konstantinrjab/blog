@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/controller_article.php" afterPath="$PROJECT_DIR$/application/controllers/controller_article.php" />
-      <change beforePath="$PROJECT_DIR$/application/core/like.php" afterPath="$PROJECT_DIR$/application/core/like.php" />
+      <change beforePath="$PROJECT_DIR$/application/core/model.php" afterPath="$PROJECT_DIR$/application/core/model.php" />
       <change beforePath="$PROJECT_DIR$/application/core/route.php" afterPath="$PROJECT_DIR$/application/core/route.php" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/application/views/article_view.php" afterPath="$PROJECT_DIR$/application/views/article_view.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,18 +47,35 @@
       <file leaf-file-name="controller_article.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/controller_article.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state relative-caret-position="396">
+              <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="route.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/core/route.php">
+      <file leaf-file-name="model.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/core/model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+            <state relative-caret-position="420">
+              <caret line="85" column="29" lean-forward="true" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+              <folding>
+                <marker date="1519593534100" expanded="true" signature="582:704" ph="SELECT title... article" />
+                <marker date="1519593534100" expanded="true" signature="615:640" ph="SELECT artic... article" />
+                <marker date="1519593534100" expanded="true" signature="615:653" ph="SELECT artic... article" />
+                <marker date="1519593534100" expanded="true" signature="1022:1287" ph="SELECT artic... article" />
+                <marker date="1519593534100" expanded="true" signature="1435:1539" ph="SELECT tag_n... tag_name" />
+                <marker date="1519593534100" expanded="true" signature="1776:1836" ph="SELECT 1 FRO... likes" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="article_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/article_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -105,6 +121,8 @@
       <find>articl</find>
       <find>like-count</find>
       <find>$id</find>
+      <find>p</find>
+      <find>ai =</find>
     </findStrings>
     <replaceStrings>
       <replace>span</replace>
@@ -150,13 +168,13 @@
         <option value="/MySQL Fragment (model.php:876).sql" />
         <option value="/MySQL Fragment (model.php:1304).sql" />
         <option value="$PROJECT_DIR$/application/models/model_main.php" />
-        <option value="$PROJECT_DIR$/application/core/model.php" />
-        <option value="$PROJECT_DIR$/application/views/article_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_main.php" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/application/core/like.php" />
-        <option value="$PROJECT_DIR$/application/controllers/controller_article.php" />
+        <option value="$PROJECT_DIR$/application/views/article_view.php" />
         <option value="$PROJECT_DIR$/application/core/route.php" />
+        <option value="$PROJECT_DIR$/application/controllers/controller_article.php" />
+        <option value="$PROJECT_DIR$/application/core/model.php" />
       </list>
     </option>
   </component>
@@ -342,7 +360,7 @@
       <workItem from="1519310547696" duration="1676000" />
       <workItem from="1519395223357" duration="39000" />
       <workItem from="1519395366446" duration="9268000" />
-      <workItem from="1519548421381" duration="36102000" />
+      <workItem from="1519548421381" duration="36460000" />
     </task>
     <task id="LOCAL-00001" summary="signUp">
       <created>1518170974885</created>
@@ -526,11 +544,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519590842437</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="like w">
+      <created>1519593193915</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1519593193915</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149447000" />
+    <option name="totallyTimeSpent" value="149805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -610,7 +635,8 @@
     <MESSAGE value="likes count ajax" />
     <MESSAGE value="heart hide onclick" />
     <MESSAGE value="single article like nw" />
-    <option name="LAST_COMMIT_MESSAGE" value="single article like nw" />
+    <MESSAGE value="like w" />
+    <option name="LAST_COMMIT_MESSAGE" value="like w" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -798,6 +824,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -949,14 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/article_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="42" column="36" lean-forward="false" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/controller_main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -992,42 +1011,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/route.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/article_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/model_article.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        <state relative-caret-position="252">
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/controller_article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/core/model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        <state relative-caret-position="420">
+          <caret line="85" column="29" lean-forward="true" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
           <folding>
-            <marker date="1519588774958" expanded="true" signature="582:704" ph="SELECT title... article" />
-            <marker date="1519588774958" expanded="true" signature="615:640" ph="SELECT artic... article" />
-            <marker date="1519588774958" expanded="true" signature="615:653" ph="SELECT artic... article" />
-            <marker date="1519588774958" expanded="true" signature="1022:1287" ph="SELECT artic... article" />
-            <marker date="1519588774958" expanded="true" signature="1435:1539" ph="SELECT tag_n... tag_name" />
-            <marker date="1519588774958" expanded="true" signature="1796:1856" ph="SELECT 1 FRO... likes" />
+            <marker date="1519593534100" expanded="true" signature="582:704" ph="SELECT title... article" />
+            <marker date="1519593534100" expanded="true" signature="615:640" ph="SELECT artic... article" />
+            <marker date="1519593534100" expanded="true" signature="615:653" ph="SELECT artic... article" />
+            <marker date="1519593534100" expanded="true" signature="1022:1287" ph="SELECT artic... article" />
+            <marker date="1519593534100" expanded="true" signature="1435:1539" ph="SELECT tag_n... tag_name" />
+            <marker date="1519593534100" expanded="true" signature="1776:1836" ph="SELECT 1 FRO... likes" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/controller_article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
