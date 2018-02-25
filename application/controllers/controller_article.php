@@ -17,7 +17,6 @@ class Controller_Article extends Controller {
 
 	function getArticle($id) {
 		$data['article'] = $this->model->get_article($id);
-//		print_r($data['article']);
 		if ( empty($data['article'])) {
 			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
 			return;

@@ -49,7 +49,6 @@ class Model {
 			':id' => $id
 		));
 		$article       = $stmt->fetch(PDO::FETCH_ASSOC);
-		print_r($article);
 
 		$stmt = $this->pdo->prepare('SELECT tag_name.tag_name FROM tag_name JOIN tag ON tag_name.tag_id = tag.tag_id WHERE article_id = :ai');
 		$stmt->execute(array(

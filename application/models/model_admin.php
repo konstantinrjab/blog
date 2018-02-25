@@ -30,12 +30,4 @@ class Model_Admin extends Model {
 			return $article;
 		}
 	}
-
-//	public function updateArticle() {
-//		if ($this->user->updateArticle($id, $title, $tag, $text)) {
-//			$_SESSION['message'] = 'Successfully deleted';
-//		} else {
-//			$_SESSION['error'] = 'Cant delete article '.$id;
-//		}
-//	}
 }
