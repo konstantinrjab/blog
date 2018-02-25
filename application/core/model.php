@@ -32,31 +32,25 @@ class Model {
 		}
 	}
 
-	public
-	function get_articles() {
-		$stmt     = $this->pdo->query('SELECT article.article_id, article.title, article.date, article.text, user.name FROM article JOIN user ON article.author = user.user_id');
+	public function get_articles() {
+		$stmt     = $this->pdo->query('SELECT article.article_id FROM article');
 		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($articles as &$article) {
-			$stmt = $this->pdo->prepare('SELECT tag_name.tag_name FROM tag JOIN tag_name ON tag.tag_id = tag_name.tag_id WHERE article_id = :ai');
-			$stmt->execute(array(
-				':ai' => $article['article_id']
-			));
-			$article['tag'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$article = $this->get_article($article['article_id']);
 		}
 
 		return $articles;
 	}
 
 	public function get_article($id) {
-		$stmt = $this->pdo->prepare('SELECT article.article_id, article.title, article.date, article.text, user.name FROM article JOIN user ON article.author = user.user_id WHERE article.article_id = :id');
+		$stmt = $this->pdo->prepare('SELECT article.article_id, article.title, article.date, article.text, user.name, COUNT(likes.user_id) as likes FROM article JOIN user ON article.author = user.user_id JOIN likes ON article.article_id = likes.article_id WHERE article.article_id = :id');
 		$stmt->execute(array(
 			':id' => $id
 		));
 		$article       = $stmt->fetch(PDO::FETCH_ASSOC);
-//		$article['id'] = $id;
-
 		print_r($article);
+
 		$stmt = $this->pdo->prepare('SELECT tag_name.tag_name FROM tag_name JOIN tag ON tag_name.tag_id = tag.tag_id WHERE article_id = :ai');
 		$stmt->execute(array(
 			':ai' => $article['article_id']

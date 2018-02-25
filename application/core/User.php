@@ -80,12 +80,16 @@ class User {
 
 	public function like($article_id){
 		$user_id = $this->getUserId();
-		$stmt = $this->pdo->prepare('INSERT INTO likes (article_id, user_id) VALUES (:ai, :ui)');
-		$stmt->execute(array(
-			':ai' => $article_id,
-			'ui' => $user_id
-		));
+		if($user_id){
+			$stmt = $this->pdo->prepare('INSERT INTO likes (article_id, user_id) VALUES (:ai, :ui)');
+			$stmt->execute(array(
+				':ai' => $article_id,
+				':ui' => $user_id
+			));
 
-		return true;
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

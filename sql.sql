@@ -43,7 +43,7 @@ CREATE TABLE tag (
 
 CREATE TABLE likes (
   article_id INT NOT NULL,
-  user_id     INT,
+  user_id    INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user (user_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,

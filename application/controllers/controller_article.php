@@ -17,18 +17,16 @@ class Controller_Article extends Controller {
 
 	function getArticle($id) {
 		$data['article'] = $this->model->get_article($id);
-		if ( !array_shift($data['article'])) {
+//		print_r($data['article']);
+		if ( empty($data['article'])) {
 			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
-			exit();
+			return;
 		}
 		$data['flash'] = $this->model->checkFlash();
 		$this->view->generate('article_view.php', 'template_view.php', $data);
-
 	}
 
 	function action_index() {
 
 	}
-
-
 }
