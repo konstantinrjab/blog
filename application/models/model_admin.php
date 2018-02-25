@@ -23,8 +23,9 @@ class Model_Admin extends Model {
 		} else {
 			$article['title'] = $_POST['title'];
 			$article['text']  = $_POST['text'];
-//			$article['tags']  = explode(',', $_POST['tag']);
 			$article['tags']  = preg_split("/[\s,;]+/", $_POST['tag']);
+			//очистка от пустых значений
+			$article['tags'] = array_diff($article['tags'], array(''));
 
 			return $article;
 		}

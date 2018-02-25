@@ -16,8 +16,9 @@ class Admin extends User {
 	}
 
 	function checkAdmin() {
-		if ( $this->position !== 'admin') {
+		if ($this->position !== 'admin') {
 			unset($this);
+
 			return false;
 		} else {
 			return true;
@@ -37,41 +38,60 @@ class Admin extends User {
 
 		//add tags
 		$article_id = $this->pdo->lastInsertId();
-		foreach ($article['tags'] as $tag) {
-			$this->addTag($article_id, $tag);
-		}
+		$this->addTags($article_id, $article['tags']);
+
 	}
 
-	public function addTag($id, $tag) {
-		$stmt = $this->pdo->prepare('SELECT tag_id FROM tag_name WHERE tag_name = :tag');
-		$stmt->execute(array(
-			':tag' => $tag
-		));
-		$tag_id = $stmt->fetch(PDO::FETCH_ASSOC);
-		$tag_id = $tag_id['tag_id'];
-
-		if ( !$tag_id) {
-			$stmt = $this->pdo->prepare('INSERT INTO tag_name(tag_name) VALUES( :tag)');
+	public function addTags($id, $tags) {
+		$used_tags = [];
+		foreach ($tags as $tag) {
+			$stmt = $this->pdo->prepare('SELECT tag_id FROM tag_name WHERE tag_name = :tag');
 			$stmt->execute(array(
 				':tag' => $tag
 			));
-			$tag_id = $this->pdo->lastInsertId();
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			$tag_id = $result['tag_id'];
+
+			if ( !$tag_id) {
+				$stmt = $this->pdo->prepare('INSERT INTO tag_name(tag_name) VALUES( :tag)');
+				$stmt->execute(array(
+					':tag' => $tag
+				));
+				$tag_id = $this->pdo->lastInsertId();
+			}
+
+			if ( !in_array($tag_id, $used_tags)) {
+				$sql  = 'INSERT INTO tag (article_id, tag_id) VALUES ( :ai, :ti)';
+				$stmt = $this->pdo->prepare($sql);
+				$stmt->execute(array(
+					':ai' => $id,
+					':ti' => $tag_id
+				));
+				$used_tags[] = $tag_id;
+			}
 		}
-		$sql  = 'INSERT INTO tag (article_id, tag_id) VALUES ( :ai, :ti)';
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute(array(
-			':ai' => $id,
-			':ti' => $tag_id
-		));
 	}
 
-	public function updateArticle($id, $title, $tag, $text) {
-		$stmt = $this->pdo->prepare('UPDATE article SET title = :tl, text = :tx WHERE article_id = :ai');
+	public function deleteTags($id) {
+		$stmt = $this->pdo->prepare('DELETE FROM tag WHERE article_id = :ai');
 		$stmt->execute(array(
-			':tl' => $title,
-			':tx' => $text,
 			':ai' => $id,
 		));
+
+		return true;
+	}
+
+	public function updateArticle($id, $article) {
+		$stmt = $this->pdo->prepare('UPDATE article SET title = :tl, text = :tx WHERE article_id = :ai');
+		$stmt->execute(array(
+			':tl' => $article['title'],
+			':tx' => $article['text'],
+			':ai' => $id,
+		));
+		if ($this->deleteTags($id)) {
+			$this->addTags($id, $article['tags']);
+		}
+
 		return true;
 	}
 
@@ -80,6 +100,7 @@ class Admin extends User {
 		$stmt->execute(array(
 			':ai' => $id,
 		));
+
 		return true;
 	}
 }

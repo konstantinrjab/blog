@@ -8,6 +8,7 @@
 ?>
 <div class="row">
     <div class="col-12">
+	    <?php include "info-window.php"; ?>
         <form method="post">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -16,8 +17,11 @@
             </div>
             <div class="form-group">
                 <label for="tag">Tags</label>
-				<?php foreach ($data['article']['tag'] as $tag) {
-					$tags .= $tag.',';
+				<?php
+				if ($data['article']['tag']) {
+					foreach ($data['article']['tag'] as $tag) {
+						$tags .= $tag.',';
+					}
 				} ?>
                 <input type="text" class="form-control" id="tag" name="tag" value="<?= $tags ?>">
             </div>

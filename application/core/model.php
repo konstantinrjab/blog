@@ -16,20 +16,24 @@ class Model {
 		$this->pdo = $pdo;
 	}
 
-	public function checkFlash(){
-		if ( !empty($_SESSION['error']) || !empty($_SESSION['message'])) {
+	public function checkFlash() {
+		if ( !empty($_SESSION['error'])) {
 			$flash['error'] = $_SESSION['error'];
 			unset($_SESSION['error']);
-
+		}
+		if ( !empty($_SESSION['message'])) {
 			$flash['message'] = $_SESSION['message'];
 			unset($_SESSION['message']);
-
+		}
+		if ($flash) {
 			return $flash;
 		} else {
 			return false;
 		}
 	}
-	public function get_articles() {
+
+	public
+	function get_articles() {
 		$stmt     = $this->pdo->query('SELECT article.article_id, article.title, article.date, article.text, user.name FROM article JOIN user ON article.author = user.user_id');
 		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -44,7 +48,10 @@ class Model {
 		return $articles;
 	}
 
-	public function get_article($id) {
+	public
+	function get_article(
+		$id
+	) {
 		$stmt = $this->pdo->prepare('SELECT article.article_id, article.title, article.date, article.text, user.name FROM article JOIN user ON article.author = user.user_id WHERE article.article_id = :id');
 		$stmt->execute(array(
 			':id' => $id

@@ -24,7 +24,7 @@ class Controller_Admin extends Controller {
 	}
 
 	function action_index() {
-		$data['flash'] = $this->model->checkFlash();
+		$data['flash']    = $this->model->checkFlash();
 		$data['articles'] = $this->model->get_articles();
 		$this->view->generate('admin_view.php', 'template_view.php', $data);
 	}
@@ -52,14 +52,16 @@ class Controller_Admin extends Controller {
 
 	function action_updateArticle() {
 		$id = $_GET['id'];
-
-		if(isset($_POST['submit'])){
+		if (isset($_POST['submit'])) {
 			$article = $this->model->checkArticle();
-			$this->user->updateArticle($id, $article['title'], $article['tags,'], $article['text']);
-			header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin');
+			$this->user->updateArticle($id, $article);
+			$_SESSION['message'] = 'Successfully updated';
+			header('Location: http://'.$_SERVER['SERVER_NAME'].'/admin/updateArticle/?id='.$id);
+			return;
 		}
 		$data['article'] = $this->model->get_article($id);
-		$data['flash'] = $this->model->checkFlash();
+		$data['flash']   = $this->model->checkFlash();
+
 		$this->view->generate('admin_article.php', 'template_view.php', $data);
 	}
 }
