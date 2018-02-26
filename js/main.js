@@ -31,4 +31,9 @@ $(document).ready(function () {
             }
         });
     });
+
+    function search() {
+        alert(1);
+    }
+
 });

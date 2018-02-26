@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
     <link rel="stylesheet" href="/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--    <link rel="icon" href="favicon.ico" type="image/x-icon">-->
+    <!--    <link rel="icon" href="favicon.ico" type="image/x-icon">-->
     <title>Главная</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <a class="navbar-brand" href="../">Blog 2</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,25 +30,43 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://<?=$_SERVER['SERVER_NAME']?>">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="http://<?= $_SERVER['SERVER_NAME'] ?>">Home
+                                <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Features</a>
                         </li>
-                        <?php if($_SESSION['user']['position'] == 'admin') : ?>
-                        <li class="nav-item">
-                            <a href="http://<?=$_SERVER['SERVER_NAME']?>/admin" class="nav-link">Admin panel</a>
-                        </li>
-                        <?php endif; ?>
+						<?php if ($_SESSION['user']['position'] == 'admin') : ?>
+                            <li class="nav-item">
+                                <a href="http://<?= $_SERVER['SERVER_NAME'] ?>/admin"
+                                   class="nav-link">Admin panel</a>
+                            </li>
+						<?php endif; ?>
                     </ul>
                 </div>
             </nav>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <form action="search">
+                <div class="mt-4 input-group mb-3 bg-light">
+                    <input type="text" class="form-control" placeholder="Article title" aria-describedby="basic-addon2"
+                           name="search-title">
+                    <input type="date" class="date-select" placeholder="Date" aria-describedby="basic-addon2"
+                           name="search-date">
+                    <div class="input-group-append">
+                        <!--                        <i class="fa fa-search" aria-hidden="true"></i>-->
+                        <input class="btn btn-outline-secondary" type="submit" value="Search"">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <!--page-->
 <div class="container">
-	<?php include 'application/views/' . $content_view; ?>
+	<?php include 'application/views/'.$content_view; ?>
 </div>
 <!--footer-->
 <div class="container">

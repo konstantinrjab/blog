@@ -14,16 +14,17 @@ class Controller_SignUp extends Controller {
 	}
 
 	function action_index() {
-		$flash = $this->model->checkFlash();
+		$data['flash'] = $this->model->checkFlash();
 		$data  = $this->model->checkData();
 		if ($data) {
 			$this->model->register($data);
 		}
+		var_dump($data);
 
-		if (isset($flash)) {
-			$data['error']   = $flash['error'];
-			$data['message'] = $flash['message'];
-		}
+	//		if (isset($flash)) {
+	//			$data['error']   = $flash['error'];
+	//			$data['message'] = $flash['message'];
+	//		}
 
 		$this->view->generate('signup_view.php', 'template_view.php', $data);
 	}
