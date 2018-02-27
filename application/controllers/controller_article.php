@@ -8,6 +8,7 @@
 
 class Controller_Article extends Controller {
 	public $data;
+	public $user;
 
 	function __construct($pdo) {
 		parent::__construct();

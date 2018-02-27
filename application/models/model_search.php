@@ -17,39 +17,37 @@ class Model_Search extends Model {
 	}
 
 	public function checkData() {
-		if ( !$_GET['search']) {
+		if ( !$_POST['search']) {
 			return false;
 		}
-		if ( !empty(trim($_GET['search-title']))) {
-			$search['title'] = $_GET['search-title'];
+		if ( !empty(trim($_POST['search-title']))) {
+			$search['title'] = $_POST['search-title'];
 		}
-		if ( !empty(trim($_GET['search-date']))) {
-			$search['date'] = $_GET['search-date'];
+		if ( !empty(trim($_POST['search-date']))) {
+			$search['date'] = $_POST['search-date'];
 		}
 //		unset($_GET);
 
 		return $search;
 	}
 
-	public function getSearchArticle($search) {
+	public function getArticlesId($search) {
 		if ($search['date']) {
-			$date = $search['date'];
-		} else {
-			$date = 1;
+			$query = 'WHERE date = \''.$search['date'].'\' AND ';
 		}
 
 		if ($search['title']) {
-			$title = $search['title'];
-		} else {
-			$title = 1;
+			$query .= 'title = \''.$search['title'].'\'';
 		}
-		$stmt = $this->pdo->prepare('SELECT article_id FROM article WHERE date = :d AND title = :t');
-		$stmt->execute(array(
-			':d' => $date,
-			':t' => $title,
-		));
+		$query = 'SELECT article_id FROM article WHERE '.$query;
+//		echo $query;
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute();
+//		$stmt->execute(array(
+//			':d' => $date,
+//			':t' => $title,
+//		));
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		print_r($result);
 
 		return $result;
 	}

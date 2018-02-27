@@ -20,10 +20,10 @@
     <div class="col-md-9 order-md-1">
         <h1>Articles</h1>
 
-		<?php foreach ($data['articles'] as $data['article']) : ?>
+		<?php foreach ($data['articles'] as $article) : ?>
 
 			<?php
-			$data['article']['intro'] = true;
+			$article['intro'] = true;
 			include('article_view.php'); ?>
 		<?php endforeach; ?>
 

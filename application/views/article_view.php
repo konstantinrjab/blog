@@ -6,37 +6,40 @@
  * Time: 17:33
  */
 
+if($data['article']){
+	$article = $data['article'];
+}
 ?>
 <div class="row">
     <div class="col-12">
         <div class="article card">
             <div class="article__header card-header">
-                <h3 class="title"><a href="/article/<?= $data['article']['article_id'] ?>">
-						<?= $data['article']['title'] ?></a>
+                <h3 class="title"><a href="/article/<?= $article['article_id'] ?>">
+						<?= $article['title'] ?></a>
                 </h3>
 
                 <p class="tag d-inline">Tags:
-					<?php foreach ($data['article']['tag'] as $tag) {
+					<?php foreach ($article['tag'] as $tag) {
 						echo $tag.', ';
 					} ?>
                 </p>
             </div>
             <div class="article__body card-body">
-				<?php if ($data['article']['intro']) : ?>
-                    <p><?php echo mb_strimwidth($data['article']['text'], 0, 150, '...'); ?>
-                        <a href="/article/<?= $data['article']['article_id'] ?>">Read full</a></p>
+				<?php if ($article['intro']) : ?>
+                    <p><?php echo mb_strimwidth($article['text'], 0, 150, '...'); ?>
+                        <a href="/article/<?= $article['article_id'] ?>">Read full</a></p>
 				<?php else : ?>
-                    <p><?= $data['article']['text'] ?></p>
+                    <p><?= $article['text'] ?></p>
 				<?php endif; ?>
             </div>
             <div class="article__footer card-footer">
-                <p class="article__date d-inline">Published: <?= $data['article']['date'] ?>; </p>
-                <p class="article__author d-inline">Author: <?= $data['article']['name'] ?>; </p>
-                <button class="article__like btn btn-primary" id="<?=$data['article']['article_id']?>">
+                <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
+                <p class="article__author d-inline">Author: <?= $article['name'] ?>; </p>
+                <button class="article__like btn btn-primary" id="<?=$article['article_id']?>">
                     Like
-                    <span id="<?=$data['article']['article_id']?>"><?php echo $data['article']['likes'] ?></span>
+                    <span id="<?=$article['article_id']?>"><?php echo $article['likes'] ?></span>
                     <?php
-                    if ($data['article']['liked'] !== true) {
+                    if ($article['liked'] !== true) {
                         $style = 'display: none;';
                     } else {
 	                    $style = '';
