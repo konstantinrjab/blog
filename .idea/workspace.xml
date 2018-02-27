@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/controller_article.php" afterPath="$PROJECT_DIR$/application/controllers/controller_article.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/controller_search.php" afterPath="$PROJECT_DIR$/application/controllers/controller_search.php" />
       <change beforePath="$PROJECT_DIR$/application/models/model_search.php" afterPath="$PROJECT_DIR$/application/models/model_search.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/article_view.php" afterPath="$PROJECT_DIR$/application/views/article_view.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/main_view.php" afterPath="$PROJECT_DIR$/application/views/main_view.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/search-bar_view.php" afterPath="$PROJECT_DIR$/application/views/search-bar_view.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,26 +53,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller_search.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controller_search.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/controller_search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            <state relative-caret-position="326">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model_search.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="model_search.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/model_search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="344">
+              <caret line="44" column="20" lean-forward="false" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
               <folding>
-                <marker date="1519734961681" expanded="true" signature="799:829" ph="SELECT artic... article" />
-                <marker date="1519734961681" expanded="true" signature="799:830" ph="SELECT artic... article" />
-                <marker date="1519734961681" expanded="true" signature="799:836" ph="SELECT artic... article" />
-                <marker date="1519734961681" expanded="true" signature="855:856" ph="SELECT artic... article" />
+                <marker date="1519735620155" expanded="true" signature="825:855" ph="SELECT artic... article" />
+                <marker date="1519735620155" expanded="true" signature="825:856" ph="SELECT artic... article" />
+                <marker date="1519735620155" expanded="true" signature="825:862" ph="SELECT artic... article" />
               </folding>
             </state>
           </provider>
@@ -159,8 +154,8 @@
         <option value="$PROJECT_DIR$/application/views/main_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_article.php" />
         <option value="$PROJECT_DIR$/application/views/article_view.php" />
-        <option value="$PROJECT_DIR$/application/models/model_search.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_search.php" />
+        <option value="$PROJECT_DIR$/application/models/model_search.php" />
       </list>
     </option>
   </component>
@@ -348,7 +343,7 @@
       <workItem from="1519395366446" duration="9268000" />
       <workItem from="1519548421381" duration="37069000" />
       <workItem from="1519641898488" duration="2926000" />
-      <workItem from="1519721912724" duration="11419000" />
+      <workItem from="1519721912724" duration="11803000" />
     </task>
     <task id="LOCAL-00001" summary="signUp">
       <created>1518170974885</created>
@@ -560,11 +555,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519729308519</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="search 50 + signup flash">
+      <created>1519735251465</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1519735251465</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164759000" />
+    <option name="totallyTimeSpent" value="165143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -621,7 +623,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="signUp" />
     <MESSAGE value="signUp with flash" />
     <MESSAGE value="sign in, sign out, flash, registration" />
     <MESSAGE value="admin check" />
@@ -646,7 +647,8 @@
     <MESSAGE value="single article like nw" />
     <MESSAGE value="like w" />
     <MESSAGE value="search + signup flash" />
-    <option name="LAST_COMMIT_MESSAGE" value="search + signup flash" />
+    <MESSAGE value="search 50 + signup flash" />
+    <option name="LAST_COMMIT_MESSAGE" value="search 50 + signup flash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1039,24 +1041,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/model_search.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/controller_search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding>
-            <marker date="1519734961681" expanded="true" signature="799:829" ph="SELECT artic... article" />
-            <marker date="1519734961681" expanded="true" signature="799:830" ph="SELECT artic... article" />
-            <marker date="1519734961681" expanded="true" signature="799:836" ph="SELECT artic... article" />
-            <marker date="1519734961681" expanded="true" signature="855:856" ph="SELECT artic... article" />
-          </folding>
+        <state relative-caret-position="326">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/controller_search.php">
+    <entry file="file://$PROJECT_DIR$/application/models/model_search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="344">
+          <caret line="44" column="20" lean-forward="false" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+          <folding>
+            <marker date="1519735620155" expanded="true" signature="825:855" ph="SELECT artic... article" />
+            <marker date="1519735620155" expanded="true" signature="825:856" ph="SELECT artic... article" />
+            <marker date="1519735620155" expanded="true" signature="825:862" ph="SELECT artic... article" />
+          </folding>
         </state>
       </provider>
     </entry>

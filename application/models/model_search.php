@@ -26,27 +26,24 @@ class Model_Search extends Model {
 		if ( !empty(trim($_POST['search-date']))) {
 			$search['date'] = $_POST['search-date'];
 		}
-//		unset($_GET);
 
 		return $search;
 	}
 
 	public function getArticlesId($search) {
 		if ($search['date']) {
-			$query = 'WHERE date = \''.$search['date'].'\' AND ';
+			$query = 'date = \''.$search['date'].'\'';
+			if ($search['title']) {
+				$query .= ' AND ';
+			}
 		}
 
 		if ($search['title']) {
 			$query .= 'title = \''.$search['title'].'\'';
 		}
 		$query = 'SELECT article_id FROM article WHERE '.$query;
-//		echo $query;
 		$stmt = $this->pdo->prepare($query);
 		$stmt->execute();
-//		$stmt->execute(array(
-//			':d' => $date,
-//			':t' => $title,
-//		));
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $result;
