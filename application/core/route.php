@@ -12,7 +12,9 @@ class Route {
 		$controller_name = 'Main';
 		$action_name     = 'index';
 
-		$routes = explode('/', $_SERVER['REQUEST_URI']);
+//		$routes = explode('/', $_SERVER['REQUEST_URI']);
+		$routes = preg_split('/[\/?]+/', $_SERVER['REQUEST_URI']);
+
 
 		// получаем имя контроллера
 		if ( !empty($routes[1])) {
@@ -56,6 +58,7 @@ class Route {
 
 		if (method_exists($controller, $action)) {
 			// вызываем действие контроллера
+//			print_r($_SESSION);
 			$controller->$action();
 		} //поставили лайк
 		else if (method_exists($controller, 'getArticle') && empty($_POST['article_id'])) //

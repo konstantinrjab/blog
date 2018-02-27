@@ -16,32 +16,25 @@ class Model_SignUp extends Model {
 		return parent::checkFlash();
 	}
 
-	public function checkData() {
-		if (empty($_POST)) {
+	public function checkInput() {
+		if (empty($_POST['submit'])) {
 			return false;
 		}
 		if ( !empty(trim($_POST['name'])) && !empty(trim($_POST['login'])) && !empty($_POST['password'])) {
-			$data = [
-				'name'     => $_POST['name'],
-				'login'    => $_POST['login'],
-				'password' => $_POST['password']
-			];
+			return true;
 		} else {
-			$data              = false;
 			$_SESSION['error'] = 'Empty field';
-			header('Location: /signup');
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			return false;
 		}
-
-		return $data;
 	}
 
-	public function register($data){
-		$user = new User($this->pdo);
-		if ($user->signUp($data['name'], $data['login'], $data['password'])) {
+	public function register(User $user){
+		if ($user->signUp($_POST['name'], $_POST['login'], $_POST['password'])) {
 			$_SESSION['message'] = 'Successfully added';
 		} else {
 			$_SESSION['error'] = 'This login is already in use';
 		}
-		header('Location: /signup');
+		header('Location: '.$_SERVER['REQUEST_URI']);
 	}
 }

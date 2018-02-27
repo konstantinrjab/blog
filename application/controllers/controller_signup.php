@@ -14,18 +14,21 @@ class Controller_SignUp extends Controller {
 	}
 
 	function action_index() {
-		$data['flash'] = $this->model->checkFlash();
-		$data  = $this->model->checkData();
-		if ($data) {
-			$this->model->register($data);
-		}
-		var_dump($data);
+//		print_r($_POST);
+//		print_r($_SESSION);
 
-	//		if (isset($flash)) {
-	//			$data['error']   = $flash['error'];
-	//			$data['message'] = $flash['message'];
-	//		}
+		$user  = new User($this->model->pdo);
+		if ($this->model->checkInput()) {
+//			echo 'register';
+			$this->model->register($user);
+		}
+
+		$data['flash'] = $this->model->checkFlash();
+
+		var_dump($data);
 
 		$this->view->generate('signup_view.php', 'template_view.php', $data);
 	}
+
+
 }

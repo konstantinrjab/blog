@@ -15,13 +15,22 @@ class Controller_Search extends Controller {
 	}
 
 	function action_index() {
-		$data  = $this->model->checkData();
-		if ($data) {
-			$this->model->get_articles($data);
+		$_SESSION['error'] = 'Insert search parameters';
+		header('Location: http://'.$_SERVER['SERVER_NAME']);
+	}
+	function action_article(){
+		$search = $this->model->checkData();
+		print_r($search);
+		if ($search) {
+			$articles_id = $this->model->getSearchArticle($search);
+			foreach ($articles_id as $id) {
+				$data['articles'] = $this->model->get_article($id);
+			}
 		}
 
+		print_r($data);
 		$data['flash'] = $this->model->checkFlash();
 
-		$this->view->generate('signup_view.php', 'template_view.php', $data);
+		$this->view->generate('search_view.php', 'template_view.php', $data);
 	}
 }

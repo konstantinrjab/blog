@@ -39,10 +39,6 @@ class Model {
 
 		foreach ($articles as &$article) {
 			$article = $this->get_article($article['article_id']);
-//			if($user->id){
-//				echo 11;
-//				$article = $this->getLikeStatus($article['article_id'], $user->id);
-//			}
 		}
 
 		return $articles;

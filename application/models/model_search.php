@@ -17,21 +17,40 @@ class Model_Search extends Model {
 	}
 
 	public function checkData() {
-		if (empty($_POST)) {
+		if ( !$_GET['search']) {
 			return false;
 		}
-		if ( !empty(trim($_POST['name'])) && !empty(trim($_POST['login'])) && !empty($_POST['password'])) {
-			$data = [
-				'name'     => $_POST['name'],
-				'login'    => $_POST['login'],
-				'password' => $_POST['password']
-			];
+		if ( !empty(trim($_GET['search-title']))) {
+			$search['title'] = $_GET['search-title'];
+		}
+		if ( !empty(trim($_GET['search-date']))) {
+			$search['date'] = $_GET['search-date'];
+		}
+//		unset($_GET);
+
+		return $search;
+	}
+
+	public function getSearchArticle($search) {
+		if ($search['date']) {
+			$date = $search['date'];
 		} else {
-			$data              = false;
-			$_SESSION['error'] = 'Empty field';
-			header('Location: /signup');
+			$date = 1;
 		}
 
-		return $data;
+		if ($search['title']) {
+			$title = $search['title'];
+		} else {
+			$title = 1;
+		}
+		$stmt = $this->pdo->prepare('SELECT article_id FROM article WHERE date = :d AND title = :t');
+		$stmt->execute(array(
+			':d' => $date,
+			':t' => $title,
+		));
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		print_r($result);
+
+		return $result;
 	}
 }

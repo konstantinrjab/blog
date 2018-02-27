@@ -6,6 +6,8 @@
  * Time: 17:33
  */
 ?>
+<? include('search-bar_view.php') ?>
+<!--articles-->
 <div class="row">
     <div class="col-md-3 order-md-2">
 		<?php if ($_SESSION['auth']) {
