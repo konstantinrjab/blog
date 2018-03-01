@@ -18,6 +18,8 @@ class Model_Admin extends Model {
 	}
 
 	public function checkArticle() {
+
+		//check text
 		if (empty(trim($_POST['title'])) || empty(trim($_POST['text']))) {
 			return false;
 		} else {
@@ -26,6 +28,7 @@ class Model_Admin extends Model {
 			$article['tags']  = preg_split("/[\s,;]+/", $_POST['tag']);
 			//очистка от пустых значений
 			$article['tags'] = array_diff($article['tags'], array(''));
+
 
 			return $article;
 		}

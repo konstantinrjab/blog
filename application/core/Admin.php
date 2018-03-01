@@ -39,7 +39,7 @@ class Admin extends User {
 		//add tags
 		$article_id = $this->pdo->lastInsertId();
 		$this->addTags($article_id, $article['tags']);
-
+		$this->addFile($article_id);
 	}
 
 	public function addTags($id, $tags) {
@@ -79,6 +79,31 @@ class Admin extends User {
 		));
 
 		return true;
+	}
+
+	public function addFile($article_id) {
+		//add file
+		$uploaddir  = 'uploads/';
+		$uploadfile = $uploaddir.translit(basename($_FILES['userfile']['name']));
+
+		move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+//		if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+//			echo "Successfully uploaded.\n";
+//		} else {
+//			echo "Error\n";
+//		}
+		$stmt = $this->pdo->prepare('SELECT article_id, img_path FROM images WHERE article_id = :ai AND img_path = :ip');
+		$stmt->execute(array(
+			':ai' => $article_id,
+			':ip' => $uploadfile
+		));
+		if ( !$stmt->fetch()) {
+			$stmt = $this->pdo->prepare('INSERT INTO images (article_id, img_path) VALUES (:ai, :p)');
+			$stmt->execute(array(
+				':ai' => $article_id,
+				':p'  => $uploadfile,
+			));
+		}
 	}
 
 	public function updateArticle($id, $article) {

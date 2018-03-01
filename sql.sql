@@ -20,10 +20,9 @@ CREATE TABLE `article` (
   ENGINE = InnoDB;
 
 CREATE TABLE tag_name (
-  tag_id   INT NOT NULL,
-  #   tag_id     INT AUTO_INCREMENT,
-  tag_name VARCHAR(128)
-  #   , PRIMARY KEY (tag_id)
+  tag_id   INT NOT NULL AUTO_INCREMENT,
+  tag_name VARCHAR(128),
+  PRIMARY KEY (tag_id)
 )
   ENGINE = InnoDB;
 
@@ -36,8 +35,8 @@ CREATE TABLE tag (
     ON DELETE CASCADE,
   FOREIGN KEY (article_id) REFERENCES article (article_id)
     ON UPDATE CASCADE
-    ON DELETE CASCADE,
-  PRIMARY KEY (tag_id)
+    ON DELETE CASCADE
+#   ,  PRIMARY KEY (tag_id)
 )
   ENGINE = InnoDB;
 
@@ -46,7 +45,6 @@ CREATE TABLE likes (
   user_id    INT NOT NULL,
 
   INDEX (article_id),
-#   CREATE INDEX article ON likes (article_id)
   FOREIGN KEY (user_id) REFERENCES user (user_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE,
@@ -56,4 +54,10 @@ CREATE TABLE likes (
 )
   ENGINE = InnoDB;
 
-
+CREATE TABLE images (
+  article_id INT NOT NULL,
+  img_path   VARCHAR(255),
+  FOREIGN KEY (article_id) REFERENCES article (article_id)
+    ON UPDATE CASCADE
+)
+  ENGINE = InnoDB;

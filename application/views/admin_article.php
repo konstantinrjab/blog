@@ -8,8 +8,8 @@
 ?>
 <div class="row">
     <div class="col-12">
-	    <?php include "info-window.php"; ?>
-        <form method="post">
+		<?php include "info-window.php"; ?>
+        <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Enter title"
@@ -30,6 +30,9 @@
                 <textarea class="form-control" id="text" name="text"
                           rows="10"><?= $data['article']['text'] ?></textarea>
             </div>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
+            <p>Choose file</p>
+            <input name="userfile" type="file"/>
             <input type="submit" class="btn btn-primary" placeholder="Add" value="Submit" name="submit">
         </form>
     </div>
