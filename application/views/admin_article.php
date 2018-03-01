@@ -30,7 +30,7 @@
                 <textarea class="form-control" id="text" name="text"
                           rows="10"><?= $data['article']['text'] ?></textarea>
             </div>
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?=1024*3*1024?>>"/>
             <p>Choose file</p>
             <input name="userfile" type="file"/>
             <input type="submit" class="btn btn-primary" placeholder="Add" value="Submit" name="submit">

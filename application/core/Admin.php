@@ -82,16 +82,21 @@ class Admin extends User {
 	}
 
 	public function addFile($article_id) {
-		//add file
+		if ( !$_FILES['userfile']['name'] || !$_FILES['userfile']['tmp_name']) {
+			$_SESSION['error'] = 'Is not image/ too big > 3Mb';
+
+			return false;
+		}
+		if ( !getimagesize($_FILES['userfile']['tmp_name'])) {
+			$_SESSION['error'] = 'Is not image/ too big > 3Mb';
+
+			return false;
+		}
 		$uploaddir  = 'uploads/';
 		$uploadfile = $uploaddir.translit(basename($_FILES['userfile']['name']));
 
 		move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
-//		if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-//			echo "Successfully uploaded.\n";
-//		} else {
-//			echo "Error\n";
-//		}
+
 		$stmt = $this->pdo->prepare('SELECT article_id, img_path FROM images WHERE article_id = :ai AND img_path = :ip');
 		$stmt->execute(array(
 			':ai' => $article_id,
@@ -104,6 +109,7 @@ class Admin extends User {
 				':p'  => $uploadfile,
 			));
 		}
+		return true;
 	}
 
 	public function updateArticle($id, $article) {

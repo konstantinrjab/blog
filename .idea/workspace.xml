@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="search post w + signup flash">
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/core/supporting.php" />
+    <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/bootstrap.php" afterPath="$PROJECT_DIR$/application/bootstrap.php" />
       <change beforePath="$PROJECT_DIR$/application/core/Admin.php" afterPath="$PROJECT_DIR$/application/core/Admin.php" />
-      <change beforePath="$PROJECT_DIR$/application/core/model.php" afterPath="$PROJECT_DIR$/application/core/model.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/model_admin.php" afterPath="$PROJECT_DIR$/application/models/model_admin.php" />
       <change beforePath="$PROJECT_DIR$/application/views/admin_article.php" afterPath="$PROJECT_DIR$/application/views/admin_article.php" />
-      <change beforePath="$PROJECT_DIR$/sql.sql" afterPath="$PROJECT_DIR$/sql.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/application/controllers/controller_admin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+              <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -90,18 +85,18 @@
       <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/core/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="105" column="9" lean-forward="false" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+            <state relative-caret-position="348">
+              <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
               <folding>
-                <marker date="1519937457442" expanded="true" signature="469:549" ph="INSERT INTO article... " />
-                <marker date="1519937457442" expanded="true" signature="1008:1057" ph="SELECT tag_i... tag_name" />
-                <marker date="1519937457442" expanded="true" signature="1243:1287" ph="INSERT INTO tag_name... " />
-                <marker date="1519937457442" expanded="true" signature="1448:1503" ph="INSERT INTO tag... " />
-                <marker date="1519937457442" expanded="true" signature="1727:1765" ph="DELETE FROM tag... " />
-                <marker date="1519937457442" expanded="true" signature="2247:2328" ph="SELECT artic... images" />
-                <marker date="1519937457442" expanded="true" signature="2469:2527" ph="INSERT INTO images... " />
-                <marker date="1519937457442" expanded="true" signature="2702:2767" ph="UPDATE article... " />
-                <marker date="1519937457442" expanded="true" signature="3046:3088" ph="DELETE FROM article... " />
+                <marker date="1519939185046" expanded="true" signature="469:549" ph="INSERT INTO article... " />
+                <marker date="1519939185046" expanded="true" signature="1008:1057" ph="SELECT tag_i... tag_name" />
+                <marker date="1519939185046" expanded="true" signature="1243:1287" ph="INSERT INTO tag_name... " />
+                <marker date="1519939185046" expanded="true" signature="1448:1503" ph="INSERT INTO tag... " />
+                <marker date="1519939185046" expanded="true" signature="1727:1765" ph="DELETE FROM tag... " />
+                <marker date="1519939185046" expanded="true" signature="2367:2448" ph="SELECT artic... images" />
+                <marker date="1519939185046" expanded="true" signature="2589:2647" ph="INSERT INTO images... " />
+                <marker date="1519939185046" expanded="true" signature="2837:2902" ph="UPDATE article... " />
+                <marker date="1519939185046" expanded="true" signature="3181:3223" ph="DELETE FROM article... " />
               </folding>
             </state>
           </provider>
@@ -110,8 +105,8 @@
       <file leaf-file-name="admin_article.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin_article.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state relative-caret-position="486">
+              <caret line="32" column="75" lean-forward="false" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -373,7 +368,7 @@
       <workItem from="1519548421381" duration="37069000" />
       <workItem from="1519641898488" duration="2926000" />
       <workItem from="1519721912724" duration="14940000" />
-      <workItem from="1519920497970" duration="7661000" />
+      <workItem from="1519920497970" duration="9386000" />
     </task>
     <task id="LOCAL-00001" summary="signUp">
       <created>1518170974885</created>
@@ -599,11 +594,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519735641371</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="ad file, signup flash nw">
+      <created>1519937489450</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1519937489450</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175941000" />
+    <option name="totallyTimeSpent" value="177666000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -660,7 +662,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="sign in, sign out, flash, registration" />
     <MESSAGE value="admin check" />
     <MESSAGE value="add article" />
     <MESSAGE value="tag nw" />
@@ -685,7 +686,8 @@
     <MESSAGE value="search + signup flash" />
     <MESSAGE value="search 50 + signup flash" />
     <MESSAGE value="search post w + signup flash" />
-    <option name="LAST_COMMIT_MESSAGE" value="search post w + signup flash" />
+    <MESSAGE value="ad file, signup flash nw" />
+    <option name="LAST_COMMIT_MESSAGE" value="ad file, signup flash nw" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1021,16 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/model_admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding>
-            <element signature="e#6#92#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog2 (2).sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1080">
@@ -1055,36 +1047,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin_article.php">
+    <entry file="file://$PROJECT_DIR$/application/models/model_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="258">
+          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#6#92#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/controller_admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+          <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin_article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="32" column="75" lean-forward="false" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/core/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="105" column="9" lean-forward="false" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+        <state relative-caret-position="348">
+          <caret line="111" column="20" lean-forward="false" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
           <folding>
-            <marker date="1519937457442" expanded="true" signature="469:549" ph="INSERT INTO article... " />
-            <marker date="1519937457442" expanded="true" signature="1008:1057" ph="SELECT tag_i... tag_name" />
-            <marker date="1519937457442" expanded="true" signature="1243:1287" ph="INSERT INTO tag_name... " />
-            <marker date="1519937457442" expanded="true" signature="1448:1503" ph="INSERT INTO tag... " />
-            <marker date="1519937457442" expanded="true" signature="1727:1765" ph="DELETE FROM tag... " />
-            <marker date="1519937457442" expanded="true" signature="2247:2328" ph="SELECT artic... images" />
-            <marker date="1519937457442" expanded="true" signature="2469:2527" ph="INSERT INTO images... " />
-            <marker date="1519937457442" expanded="true" signature="2702:2767" ph="UPDATE article... " />
-            <marker date="1519937457442" expanded="true" signature="3046:3088" ph="DELETE FROM article... " />
+            <marker date="1519939185046" expanded="true" signature="469:549" ph="INSERT INTO article... " />
+            <marker date="1519939185046" expanded="true" signature="1008:1057" ph="SELECT tag_i... tag_name" />
+            <marker date="1519939185046" expanded="true" signature="1243:1287" ph="INSERT INTO tag_name... " />
+            <marker date="1519939185046" expanded="true" signature="1448:1503" ph="INSERT INTO tag... " />
+            <marker date="1519939185046" expanded="true" signature="1727:1765" ph="DELETE FROM tag... " />
+            <marker date="1519939185046" expanded="true" signature="2367:2448" ph="SELECT artic... images" />
+            <marker date="1519939185046" expanded="true" signature="2589:2647" ph="INSERT INTO images... " />
+            <marker date="1519939185046" expanded="true" signature="2837:2902" ph="UPDATE article... " />
+            <marker date="1519939185046" expanded="true" signature="3181:3223" ph="DELETE FROM article... " />
           </folding>
         </state>
       </provider>
