@@ -34,7 +34,7 @@ class Model {
 
 	public function get_articles() {
 
-		$stmt     = $this->pdo->query('SELECT article.article_id FROM article');
+		$stmt     = $this->pdo->query('SELECT article.article_id FROM article ORDER BY date DESC');
 		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($articles as &$article) {
