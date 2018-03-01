@@ -122,6 +122,7 @@ class Admin extends User {
 		if ($this->deleteTags($id)) {
 			$this->addTags($id, $article['tags']);
 		}
+		$this->addFile($id);
 
 		return true;
 	}

@@ -12,7 +12,7 @@ CREATE TABLE `article` (
   `article_id` INT(11) NOT NULL AUTO_INCREMENT,
   `title`      VARCHAR(255)     DEFAULT NULL,
   `author`     INT(11)          DEFAULT NULL,
-  `date`       DATE    NOT NULL,
+  `date`       DATETIME    NOT NULL,
   `text`       TEXT,
   PRIMARY KEY (article_id),
   FOREIGN KEY (author) REFERENCES user (user_id)

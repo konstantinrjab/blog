@@ -6,7 +6,7 @@
  * Time: 17:33
  */
 
-if($data['article']){
+if ($data['article']) {
 	$article = $data['article'];
 }
 print_r($article);
@@ -33,23 +33,27 @@ print_r($article);
                     <p><?= $article['text'] ?></p>
 				<?php endif; ?>
             </div>
-            <?php foreach ($article['images'] as $image) : ?>
-                <img class="article__img" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/'.$image; ?>" >
-            <?php endforeach; ?>
+
+			<?php if ( !$article['intro']) : ?>
+				<?php foreach ($article['images'] as $image) : ?>
+                    <img class="article__img" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/'.$image; ?>">
+				<?php endforeach; ?>
+			<?php endif; ?>
+
             <div class="article__footer card-footer">
                 <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
                 <p class="article__author d-inline">Author: <?= $article['name'] ?>; </p>
-                <button class="article__like btn btn-primary" id="<?=$article['article_id']?>">
+                <button class="article__like btn btn-primary" id="<?= $article['article_id'] ?>">
                     Like
-                    <span id="<?=$article['article_id']?>"><?php echo $article['likes'] ?></span>
-                    <?php
-                    if ($article['liked'] !== true) {
-                        $style = 'display: none;';
-                    } else {
-	                    $style = '';
-                    }
-                    ?>
-                    <i class="fa fa-heart" style="<?=$style?>"></i>
+                    <span id="<?= $article['article_id'] ?>"><?php echo $article['likes'] ?></span>
+					<?php
+					if ($article['liked'] !== true) {
+						$style = 'display: none;';
+					} else {
+						$style = '';
+					}
+					?>
+                    <i class="fa fa-heart" style="<?= $style ?>"></i>
                 </button>
             </div>
 
