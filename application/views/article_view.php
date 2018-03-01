@@ -9,6 +9,7 @@
 if($data['article']){
 	$article = $data['article'];
 }
+print_r($article);
 ?>
 <div class="row">
     <div class="col-12">
@@ -32,6 +33,9 @@ if($data['article']){
                     <p><?= $article['text'] ?></p>
 				<?php endif; ?>
             </div>
+            <?php foreach ($article['images'] as $image) : ?>
+                <img class="article__img" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/'.$image; ?>" >
+            <?php endforeach; ?>
             <div class="article__footer card-footer">
                 <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
                 <p class="article__author d-inline">Author: <?= $article['name'] ?>; </p>

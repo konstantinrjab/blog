@@ -71,6 +71,14 @@ WHERE article_id = :ai');
 		));
 		$article['tag'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+		//get images
+		$stmt = $this->pdo->prepare('SELECT img_path
+FROM images
+WHERE article_id = :ai');
+		$stmt->execute(array(
+			':ai' => $article['article_id']
+		));
+		$article['images'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 		return $article;
 	}
