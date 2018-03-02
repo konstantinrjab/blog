@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
     $('button.comment__button_call').click(function(){
-        var article_id = $(this).attr('id')
+        var article_id = $(this).attr('id');
         commentButtonClick(article_id)
     });
 
@@ -46,10 +46,6 @@ $(document).ready(function () {
 
         console.log('click on ' + article_id);
     });
-
-    function search() {
-        alert(1);
-    }
 });
 
 function commentButtonClick(article_id) {

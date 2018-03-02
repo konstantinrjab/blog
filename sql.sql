@@ -61,3 +61,11 @@ CREATE TABLE images (
     ON UPDATE CASCADE
 )
   ENGINE = InnoDB;
+
+# CREATE TABLE comment (
+#   article_id INT NOT NULL,
+#   img_path   VARCHAR(255),
+#   FOREIGN KEY (article_id) REFERENCES article (article_id)
+#     ON UPDATE CASCADE
+# )
+#   ENGINE = InnoDB;

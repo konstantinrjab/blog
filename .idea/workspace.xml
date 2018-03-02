@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="signup flash nw, order desc)">
+    <list default="true" id="b7df2077-1d36-4ae1-a247-011afb973aa6" name="Default" comment="signup flash nw, comm front 50">
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/core/comment.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/views/article_view.php" afterPath="$PROJECT_DIR$/application/views/article_view.php" />
+      <change beforePath="$PROJECT_DIR$/application/core/like.php" afterPath="$PROJECT_DIR$/application/core/like.php" />
       <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/sql.sql" afterPath="$PROJECT_DIR$/sql.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,65 +45,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="model_admin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/model_admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_admin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/controller_admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/core/model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding>
-                <marker date="1519941111260" expanded="true" signature="582:723" ph="SELECT title... article" />
-                <marker date="1519941111260" expanded="true" signature="615:640" ph="SELECT artic... article" />
-                <marker date="1519941111260" expanded="true" signature="615:653" ph="SELECT artic... article" />
-                <marker date="1519941111260" expanded="true" signature="615:672" ph="SELECT artic... article" />
-                <marker date="1519941111260" expanded="true" signature="925:1190" ph="SELECT artic... article" />
-                <marker date="1519941111260" expanded="true" signature="1338:1442" ph="SELECT tag_n... tag_name" />
-                <marker date="1519941111260" expanded="true" signature="1614:1664" ph="SELECT path_... tag_name" />
-                <marker date="1519941111260" expanded="true" signature="1903:1963" ph="SELECT 1 FRO... likes" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/core/Admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="124" column="28" lean-forward="false" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-              <folding>
-                <marker date="1519940310854" expanded="true" signature="469:549" ph="INSERT INTO article... " />
-                <marker date="1519940310854" expanded="true" signature="1008:1057" ph="SELECT tag_i... tag_name" />
-                <marker date="1519940310854" expanded="true" signature="1243:1287" ph="INSERT INTO tag_name... " />
-                <marker date="1519940310854" expanded="true" signature="1448:1503" ph="INSERT INTO tag... " />
-                <marker date="1519940310854" expanded="true" signature="1727:1765" ph="DELETE FROM tag... " />
-                <marker date="1519940310854" expanded="true" signature="2367:2448" ph="SELECT artic... images" />
-                <marker date="1519940310854" expanded="true" signature="2589:2647" ph="INSERT INTO images... " />
-                <marker date="1519940310854" expanded="true" signature="2837:2902" ph="UPDATE article... " />
-                <marker date="1519940310854" expanded="true" signature="3204:3246" ph="DELETE FROM article... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main_view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/main_view.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -125,11 +68,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+            <state relative-caret-position="-160">
+              <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="like.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/core/like.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <marker date="1520029767230" expanded="true" signature="338:398" ph="SELECT 1 FRO... likes" />
+                <marker date="1520029767230" expanded="true" signature="665:720" ph="SELECT COUNT... likes" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/core/comment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+              <folding>
+                <marker date="1520029767235" expanded="true" signature="396:410" ph="INSERT INTO co... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sql.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sql.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="2" selection-end-line="70" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -195,7 +173,6 @@
         <option value="/MySQL Fragment (model.php:1304).sql" />
         <option value="$PROJECT_DIR$/application/models/model_main.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_main.php" />
-        <option value="$PROJECT_DIR$/application/core/like.php" />
         <option value="$PROJECT_DIR$/application/views/template_view.php" />
         <option value="$PROJECT_DIR$/application/views/signup_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/controller_signup.php" />
@@ -213,10 +190,12 @@
         <option value="$PROJECT_DIR$/application/views/admin_article.php" />
         <option value="$PROJECT_DIR$/css/custom.sass" />
         <option value="$PROJECT_DIR$/application/core/Admin.php" />
-        <option value="$PROJECT_DIR$/sql.sql" />
         <option value="$PROJECT_DIR$/application/core/model.php" />
         <option value="$PROJECT_DIR$/application/views/article_view.php" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/application/core/like.php" />
+        <option value="$PROJECT_DIR$/application/core/comment.php" />
+        <option value="$PROJECT_DIR$/sql.sql" />
       </list>
     </option>
   </component>
@@ -351,14 +330,14 @@
     <property name="node.js.selected.package.jscs" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\blog-route\application\views" />
-      <recent name="C:\OpenServer\domains\blog-route\application\models" />
-      <recent name="C:\OpenServer\domains\blog-route\application\core" />
-      <recent name="C:\OpenServer\domains\blog-route\application\controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\blog-route\application" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\blog-route\application\core" />
+      <recent name="C:\OpenServer\domains\blog-route\application\views" />
+      <recent name="C:\OpenServer\domains\blog-route\application\models" />
+      <recent name="C:\OpenServer\domains\blog-route\application\controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -417,7 +396,7 @@
       <workItem from="1519721912724" duration="14940000" />
       <workItem from="1519920497970" duration="11225000" />
       <workItem from="1519941092114" duration="64000" />
-      <workItem from="1520026654641" duration="2744000" />
+      <workItem from="1520026654641" duration="3234000" />
     </task>
     <task id="LOCAL-00001" summary="signUp">
       <created>1518170974885</created>
@@ -678,11 +657,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519941146059</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="signup flash nw, comm front 50">
+      <created>1520029419559</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1520029419560</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182313000" />
+    <option name="totallyTimeSpent" value="182803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -739,7 +725,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="display articles" />
     <MESSAGE value="add tags" />
     <MESSAGE value="admin view" />
     <MESSAGE value="tags" />
@@ -764,7 +749,8 @@
     <MESSAGE value="img out, signup flash nw" />
     <MESSAGE value="signup flash nw" />
     <MESSAGE value="signup flash nw, order desc)" />
-    <option name="LAST_COMMIT_MESSAGE" value="signup flash nw, order desc)" />
+    <MESSAGE value="signup flash nw, comm front 50" />
+    <option name="LAST_COMMIT_MESSAGE" value="signup flash nw, comm front 50" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -773,13 +759,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/signup_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/controller_404.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -902,13 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="54" column="5" lean-forward="false" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/like.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1082,13 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin_article.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -1150,10 +1115,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/like.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <marker date="1520029767230" expanded="true" signature="338:398" ph="SELECT 1 FRO... likes" />
+            <marker date="1520029767230" expanded="true" signature="665:720" ph="SELECT COUNT... likes" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+        <state relative-caret-position="-160">
+          <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+          <folding>
+            <marker date="1520029767235" expanded="true" signature="396:410" ph="INSERT INTO co... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="2" selection-end-line="70" selection-end-column="20" />
           <folding />
         </state>
       </provider>
