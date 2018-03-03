@@ -12,16 +12,20 @@ session_start();
 header('Content-Type: application/json');
 
 $article_id = $_POST['article_id'];
-$parent_id = $_POST['parent_id'];
-$text = $_POST['text'];
+$parent_id  = $_POST['parent_id'];
+$text       = $_POST['text'];
 
 $user = new User($pdo);
 if ( !$user->id) {
 	die(json_encode('guest'));
 }
-$stmt = $pdo->prepare('INSERT INTO co');
+$stmt = $pdo->prepare('INSERT INTO comment (article_id, parent_id, comment_text, author) 
+VALUES (:ai, :pi, :tx, :au)');
+
 $stmt->execute(array(
 	':ai' => $article_id,
+	':pi' => $parent_id,
+	':tx' => $text,
 	':ui' => $user->id,
 ));
 

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $('button.article__like').click(function () {
         var button = this;
         var article_id = $(this).attr('id');
@@ -32,7 +31,7 @@ $(document).ready(function () {
         });
     });
 
-    $('button.comment__button_call').click(function(){
+    $('button.comment__button_call').click(function () {
         var article_id = $(this).attr('id');
         commentButtonClick(article_id)
     });
@@ -40,11 +39,40 @@ $(document).ready(function () {
     $('button.comment__button_send').click(function () {
         // var button_send = this;
         var article_id = $(this).attr('id');
-        // var textarea = $('textarea[id="' + article_id + '"]');
+        var textarea = $('textarea[id="' + article_id + '"]');
+        var parent_id;
         // var button_send = $('button.comment__button_send[id="' + article_id + '"]');
         commentButtonClick(article_id);
+        var text = $(textarea).text;
+        if ($(this).attr('parent_id')) {
+            parent_id = $(this).attr('parent_id');
+        } else {
+            parent_id = 0;
+        }
 
         console.log('click on ' + article_id);
+
+        $.ajax({
+            type: 'POST',
+            url: 'application/core/comment.php',
+            dataType: 'json',
+            data: {
+                'article_id': article_id,
+                'text': text,
+                'parent_id': parent_id
+            },
+            success: function (data) {
+                // data = $.parseJSON(data);
+                console.log(data);
+                if (data === 'guest') {
+                    alert('You have to log in');
+                }
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+        });
     });
 });
 

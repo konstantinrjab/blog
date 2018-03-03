@@ -9,10 +9,10 @@ CREATE TABLE `user` (
   ENGINE = InnoDB;
 
 CREATE TABLE `article` (
-  `article_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `title`      VARCHAR(255)     DEFAULT NULL,
-  `author`     INT(11)          DEFAULT NULL,
-  `date`       DATETIME    NOT NULL,
+  `article_id` INT(11)  NOT NULL AUTO_INCREMENT,
+  `title`      VARCHAR(255)      DEFAULT NULL,
+  `author`     INT(11)           DEFAULT NULL,
+  `date`       DATETIME NOT NULL,
   `text`       TEXT,
   PRIMARY KEY (article_id),
   FOREIGN KEY (author) REFERENCES user (user_id)
@@ -36,7 +36,7 @@ CREATE TABLE tag (
   FOREIGN KEY (article_id) REFERENCES article (article_id)
     ON UPDATE CASCADE
     ON DELETE CASCADE
-#   ,  PRIMARY KEY (tag_id)
+  #   ,  PRIMARY KEY (tag_id)
 )
   ENGINE = InnoDB;
 
@@ -62,10 +62,17 @@ CREATE TABLE images (
 )
   ENGINE = InnoDB;
 
-# CREATE TABLE comment (
-#   article_id INT NOT NULL,
-#   img_path   VARCHAR(255),
-#   FOREIGN KEY (article_id) REFERENCES article (article_id)
-#     ON UPDATE CASCADE
-# )
-#   ENGINE = InnoDB;
+CREATE TABLE comment (
+  article_id   INT NOT NULL,
+  parent_id    INT NOT NULL,
+  comment_id    INT NOT NULL AUTO_INCREMENT,
+  comment_text VARCHAR(255),
+  author       INT NOT NULL,
+
+  PRIMARY KEY (comment_id),
+  FOREIGN KEY (article_id) REFERENCES article (article_id)
+    ON UPDATE CASCADE,
+  FOREIGN KEY (author) REFERENCES USER (user_id)
+    ON UPDATE CASCADE
+)
+  ENGINE = InnoDB;
