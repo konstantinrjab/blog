@@ -59,20 +59,23 @@ CREATE TABLE images (
   img_path   VARCHAR(255),
   FOREIGN KEY (article_id) REFERENCES article (article_id)
     ON UPDATE CASCADE
+    ON DELETE CASCADE
 )
   ENGINE = InnoDB;
 
-CREATE TABLE comment (
+CREATE TABLE comments (
   article_id   INT NOT NULL,
   parent_id    INT NOT NULL,
-  comment_id    INT NOT NULL AUTO_INCREMENT,
+  comment_id   INT NOT NULL AUTO_INCREMENT,
   comment_text VARCHAR(255),
   author       INT NOT NULL,
 
   PRIMARY KEY (comment_id),
   FOREIGN KEY (article_id) REFERENCES article (article_id)
-    ON UPDATE CASCADE,
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
   FOREIGN KEY (author) REFERENCES USER (user_id)
     ON UPDATE CASCADE
+    ON DELETE CASCADE
 )
   ENGINE = InnoDB;

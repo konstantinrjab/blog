@@ -55,10 +55,11 @@ if ($data['article']) {
 					?>
                     <i class="fa fa-heart" style="<?= $style ?>"></i>
                 </button>
-                <button class="comment__button_call btn btn-primary" id="<?=$article['article_id']?>">Comment</button>
-                <label for="<?=$article['article_id']?>"></label>
-                <textarea class="comment__textarea mt-3 w-100" style="display: none;" name="comment__body" id="<?=$article['article_id']?>" cols="10" rows="5"></textarea>
-                <button class="btn btn-primary comment__button_send mt-1" style="display: none;" id="<?=$article['article_id']?>">Send comment</button>
+                <button class="comment__button_call btn btn-primary" article_id="<?=$article['article_id']?>">Comment</button>
+                <label class="w-100">
+                    <textarea class="comment__textarea mt-3 w-100" style="display: none;" name="comment__body" article_id="<?=$article['article_id']?>" cols="10" rows="5"></textarea>
+                </label>
+                <button class="btn btn-primary comment__button_send mt-1" style="display: none;" article_id="<?=$article['article_id']?>">Send comment</button>
             </div>
 
         </div>

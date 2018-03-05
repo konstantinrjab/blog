@@ -45,12 +45,15 @@ class Model {
 	}
 
 	public function get_article($article_id) {
+		//get text
 		$stmt = $this->pdo->prepare('SELECT
   article.article_id,
   article.title,
   article.date,
   article.text,
+
   user.name,
+
   COUNT(likes.user_id) AS likes
 FROM article
   JOIN user ON article.author = user.user_id
@@ -67,7 +70,7 @@ FROM tag_name
   JOIN tag ON tag_name.tag_id = tag.tag_id
 WHERE article_id = :ai');
 		$stmt->execute(array(
-			':ai' => $article['article_id']
+			':ai' => $article_id
 		));
 		$article['tag'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
@@ -76,10 +79,20 @@ WHERE article_id = :ai');
 FROM images
 WHERE article_id = :ai');
 		$stmt->execute(array(
-			':ai' => $article['article_id']
+			':ai' => $article_id
 		));
 		$article['images'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+		//get comments
+		$stmt = $this->pdo->prepare('SELECT *
+FROM comments
+WHERE article_id = :ai');
+		$stmt->execute(array(
+			':ai' => $article['comment']
+		));
+		$article['comments'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		print_r($article);
 		return $article;
 	}
 

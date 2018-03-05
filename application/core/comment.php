@@ -19,14 +19,15 @@ $user = new User($pdo);
 if ( !$user->id) {
 	die(json_encode('guest'));
 }
-$stmt = $pdo->prepare('INSERT INTO comment (article_id, parent_id, comment_text, author) 
+
+$stmt = $pdo->prepare('INSERT INTO comments (article_id, parent_id, comment_text, author) 
 VALUES (:ai, :pi, :tx, :au)');
 
 $stmt->execute(array(
 	':ai' => $article_id,
 	':pi' => $parent_id,
 	':tx' => $text,
-	':ui' => $user->id,
+	':au' => $user->id,
 ));
 
 echo json_encode($json = 'Success');

@@ -32,25 +32,27 @@ $(document).ready(function () {
     });
 
     $('button.comment__button_call').click(function () {
-        var article_id = $(this).attr('id');
+        var article_id = $(this).attr('article_id');
+        console.log('!!! ' + article_id);
         commentButtonClick(article_id)
     });
 
     $('button.comment__button_send').click(function () {
         // var button_send = this;
-        var article_id = $(this).attr('id');
-        var textarea = $('textarea[id="' + article_id + '"]');
-        var parent_id;
-        // var button_send = $('button.comment__button_send[id="' + article_id + '"]');
-        commentButtonClick(article_id);
-        var text = $(textarea).text;
+        var article_id = $(this).attr('article_id');
+        var textarea = $('textarea[article_id="' + article_id + '"]');
+        var parent_id = 0;
+        var text = $(textarea).val();
         if ($(this).attr('parent_id')) {
             parent_id = $(this).attr('parent_id');
-        } else {
-            parent_id = 0;
         }
 
+        console.log(textarea);
+        console.log($('textarea[article_id="' + article_id + '"]').val());
         console.log('click on ' + article_id);
+        console.log('parent ' + parent_id);
+        console.log('text ' + text);
+        commentButtonClick(article_id);
 
         $.ajax({
             type: 'POST',
@@ -77,21 +79,19 @@ $(document).ready(function () {
 });
 
 function commentButtonClick(article_id) {
-    var button_call = $('button.comment__button_call[id="' + article_id + '"]');
-    var textarea = $('textarea[id="' + article_id + '"]');
-    var button_send = $('button.comment__button_send[id="' + article_id + '"]');
+    var button_call = $('button.comment__button_call[article_id="' + article_id + '"]');
+    var textarea = $('textarea[article_id="' + article_id + '"]');
+    var button_send = $('button.comment__button_send[article_id="' + article_id + '"]');
 
     if ($(textarea).is(':visible')) {
         $(textarea).hide();
         $(button_send).hide();
-        console.log('1');
         $(button_call).text('Comment');
 
     } else {
-        $(button_call).text('Cansel');
+        $(button_call).text('Cancel');
         $(textarea).show();
         $(button_send).show();
-        console.log('2');
     }
 
     console.log('click on ' + article_id);
