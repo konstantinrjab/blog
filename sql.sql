@@ -69,6 +69,7 @@ CREATE TABLE comments (
   comment_id   INT NOT NULL AUTO_INCREMENT,
   comment_text VARCHAR(255),
   author       INT NOT NULL,
+#   date DATETIME,
 
   PRIMARY KEY (comment_id),
   FOREIGN KEY (article_id) REFERENCES article (article_id)

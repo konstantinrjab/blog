@@ -51,7 +51,6 @@ class Model {
   article.title,
   article.date,
   article.text,
-
   user.name,
 
   COUNT(likes.user_id) AS likes
@@ -84,15 +83,16 @@ WHERE article_id = :ai');
 		$article['images'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 		//get comments
-		$stmt = $this->pdo->prepare('SELECT *
+		$stmt = $this->pdo->prepare('SELECT comments.parent_id, comments.comment_id, comments.comment_text, user.name
 FROM comments
+JOIN user ON comments.author = user.user_id
 WHERE article_id = :ai');
 		$stmt->execute(array(
-			':ai' => $article['comment']
+			':ai' => $article_id
 		));
 		$article['comments'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		print_r($article);
+//		print_r($article);
 		return $article;
 	}
 

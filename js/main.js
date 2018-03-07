@@ -56,7 +56,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'application/core/comment.php',
+            url: 'application/core/comment-ajax.php',
             dataType: 'json',
             data: {
                 'article_id': article_id,
