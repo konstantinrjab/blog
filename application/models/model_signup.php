@@ -24,17 +24,17 @@ class Model_SignUp extends Model {
 			return true;
 		} else {
 			$_SESSION['error'] = 'Empty field';
-			header('Location: '.$_SERVER['REQUEST_URI']);
+			header('Location: '.$_SERVER['HTTP_REFERER']);
 			return false;
 		}
 	}
 
 	public function register(User $user){
 		if ($user->signUp($_POST['name'], $_POST['login'], $_POST['password'])) {
-			$_SESSION['message'] = 'Successfully added';
+			$_SESSION['message'] = 'Successfully added! Now you can log in';
 		} else {
 			$_SESSION['error'] = 'This login is already in use';
 		}
-		header('Location: '.$_SERVER['REQUEST_URI']);
+		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 }
