@@ -17,7 +17,7 @@ $text       = $_POST['text'];
 
 $user = new User($pdo);
 if ( !$user->id) {
-	die(json_encode('guest'));
+	die('login error');
 }
 
 $stmt = $pdo->prepare('INSERT INTO comments (article_id, parent_id, comment_text, author) 
@@ -33,5 +33,5 @@ $stmt->execute(array(
 $model = new Model($pdo);
 $article = $model->get_article($article_id);
 foreach ($article['comments'] as $comment){
-	include('application/views/comments-view.php');
+	include('application/views/comment-view.php');
 }

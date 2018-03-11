@@ -42,7 +42,7 @@ if ($data['article']) {
             <div class="article__footer card-footer">
                 <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
                 <p class="article__author d-inline">Author: <?= $article['name'] ?>; </p>
-                <button class="article__like btn btn-primary" id="<?= $article['article_id'] ?>">
+                <button class="article__button_like btn btn-primary" id="<?= $article['article_id'] ?>">
                     Like
                     <span id="<?= $article['article_id'] ?>"><?php echo $article['likes'] ?></span>
 					<?php
@@ -54,29 +54,33 @@ if ($data['article']) {
 					?>
                     <i class="fa fa-heart" style="<?= $style ?>"></i>
                 </button>
-                <button class="comment__button_call btn btn-primary" article_id="<?= $article['article_id'] ?>">
-                    Comment
-                </button>
-                <label class="w-100">
-                    <textarea class="comment__textarea mt-3 w-100" style="display: none;" name="comment__body"
-                              article_id="<?= $article['article_id'] ?>" cols="10" rows="5"></textarea>
-                </label>
-                <button class="btn btn-primary comment__button_send mt-1" style="display: none;"
-                        article_id="<?= $article['article_id'] ?>">Send comment
-                </button>
-                <!-- Comments-->
-				<div class="article__comments" article_id="<?= $article['article_id'] ?>">
-					<?php
-					foreach ($article['comments'] as $comment){
-						include('comments-view.php');
-					}
-					//				$level = 0;
-					//                $parent_id = 0;
-					//				$comments = $article['comments'];
-					//				outComments($comments,0,0);
-					?>
-                </div>
 
+				<?php if ($article['intro'] !== true) : ?>
+                    <!-- Comments-->
+                    <div class="article__comments" article_id="<?= $article['article_id'] ?>">
+                    <textarea class="comment__textarea mt-3 w-100" name="comment__body"
+                              article_id="<?= $article['article_id'] ?>"
+                              parent_id="0"
+                              rows="2"></textarea>
+                        <button class="btn btn-primary article__button_comment mt-1"
+                                article_id="<?= $article['article_id'] ?>" parent_id="0">Comment
+                        </button>
+                        <div class="article__comments_area" article_id="<?= $article['article_id'] ?>">
+
+							<?php
+							foreach ($article['comments'] as $comment) {
+								// print_r($comment);
+								include('comment-view.php');
+							}
+							// $level = 0;
+							// $parent_id = 0;
+							// $comments = $article['comments'];
+							// outComments($comments,0,0);
+
+							?>
+                        </div>
+                    </div>
+				<?php endif; ?>
 
             </div>
 

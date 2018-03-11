@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('button.article__like').click(function () {
+    $('button.article__button_like').click(function () {
         var button = this;
         var article_id = $(this).attr('id');
 
@@ -8,8 +8,8 @@ $(document).ready(function () {
             url: 'application/core/like.php',
             dataType: 'json',
             data: {
-                'article_id': + article_id,
-                'like':true
+                'article_id': +article_id,
+                'like': true
             },
             success: function (data) {
                 // data = $.parseJSON(data);
@@ -32,47 +32,46 @@ $(document).ready(function () {
         });
     });
 
-    $('button.comment__button_call').click(function () {
-        var article_id = $(this).attr('article_id');
-        commentButtonClick(article_id)
-    });
+    // $('button.comment__button_call').click(function () {
+    //     var article_id = $(this).attr('article_id');
+    //     commentButtonClick(article_id)
+    // });
 
-    $('button.comment__button_send').click(function () {
-        // var button_send = this;
+    $('button.article__button_comment').click(function () {
         var article_id = $(this).attr('article_id');
-        var textarea = $('textarea[article_id="' + article_id + '"]');
-        var parent_id = 0;
+        var parent_id = $(this).attr('parent_id');
+        var textarea = $('textarea[article_id="' + article_id + '"][parent_id="' + parent_id + '"]');
         var text = $(textarea).val();
-        if ($(this).attr('parent_id')) {
-            parent_id = $(this).attr('parent_id');
-        }
-        commentButtonClick(article_id);
 
-        $.ajax({
-            type: 'POST',
-            url: 'application/core/comment-ajax.php',
-            dataType: 'html',
-            data: {
-                'article_id': article_id,
-                'comment':true,
-                'text': text,
-                'parent_id': parent_id
-            },
-            success: function (data) {
-                // data = $.parseJSON(data);
-                if (data === 'guest') {
-                    alert('You have to log in');
-                } else {
-                    comment_area = $('div.article__comments[article_id="' + article_id + '"]');
-                    $(comment_area).empty();
-                    $(comment_area).append(data);
+        if (text.length) {
+            // commentButtonClick(article_id);
+            $.ajax({
+                type: 'POST',
+                url: 'application/core/comment-ajax.php',
+                dataType: 'html',
+                data: {
+                    'article_id': article_id,
+                    'comment': true,
+                    'text': text,
+                    'parent_id': parent_id
+                },
+                success: function (data) {
+                    // data = $.parseJSON(data);
+                    if (data === 'login error') {
+                        alert('You have to sign in');
+                    } else {
+                        comment_area = $('div.article__comments_area[article_id="' + article_id + '"]');
+                        $(comment_area).empty();
+                        $(textarea).val('');
+                        $(comment_area).append(data);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
                 }
-            },
-            error: function (xhr, status, error) {
-                var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
-            }
-        });
+            });
+        }
     });
 });
 
