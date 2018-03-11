@@ -9,7 +9,7 @@
 require_once('pdo.php');
 require_once('User.php');
 session_start();
-header('Content-Type: application/json');
+//header('Content-Type: ');
 
 $article_id = $_POST['article_id'];
 $parent_id  = $_POST['parent_id'];
@@ -30,4 +30,8 @@ $stmt->execute(array(
 	':au' => $user->id,
 ));
 
-echo json_encode($json = 'Success');
+$model = new Model($pdo);
+$article = $model->get_article($article_id);
+foreach ($article['comments'] as $comment){
+	include('application/views/comments-view.php');
+}

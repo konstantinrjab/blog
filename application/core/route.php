@@ -61,13 +61,14 @@ class Route {
 //			print_r($_SESSION);
 			$controller->$action();
 		} //поставили лайк
-		else if (method_exists($controller, 'getArticle') && empty($_POST['article_id'])) //
-		{
+		else if (method_exists($controller, 'getArticle') && empty($_POST['article_id'])) {
 			$id = preg_replace('/[^0-9]/', '', $action);
 			$controller->getArticle($id);
 
-		} elseif ($_POST['article_id']) {
+		} elseif ($_POST['article_id'] && $_POST['like']) {
 			require_once('like.php');
+		} elseif ($_POST['article_id'] && $_POST['comment']) {
+			require_once('comment-ajax.php');
 		} else {
 			Route::ErrorPage404();
 		}

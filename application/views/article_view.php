@@ -65,27 +65,17 @@ if ($data['article']) {
                         article_id="<?= $article['article_id'] ?>">Send comment
                 </button>
                 <!-- Comments-->
-				<?php
-//				$level = 0;
-//				function outComments($comment, $parent_id, $level) {
-//					if ($comment['parent_id']) {
-//						echo "
-//				<div class='comment' comment_id=".$comment['comment_id']." article_id=".$comment['article_id'].">
-//					<p>Written by: ".$comment['name']."</p>
-//					<div style='margin-left:".($level * 25)."px;'>".$comment['comment']."
-//					</div>
-//					<textarea class='form-control form-comment-c' comment_id=".$comment['comment_id']." placeholder='Reply ".$comment['name']."'></textarea>
-//				</div>";
-//						$level++;
-//						outComments($comment, $parent_id, $level);
-//						$level--;
-//					}
-//				}
-
-				foreach ($article['comments'] as $comment) {
-				    include ('application/core/comments.php');
-                }
-				?>
+				<div class="article__comments" article_id="<?= $article['article_id'] ?>">
+					<?php
+					foreach ($article['comments'] as $comment){
+						include('comments-view.php');
+					}
+					//				$level = 0;
+					//                $parent_id = 0;
+					//				$comments = $article['comments'];
+					//				outComments($comments,0,0);
+					?>
+                </div>
 
 
             </div>

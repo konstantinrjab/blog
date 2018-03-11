@@ -91,8 +91,11 @@ WHERE article_id = :ai');
 			':ai' => $article_id
 		));
 		$article['comments'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//		foreach ($result as $value) {
+//			$comments[$value->parent_id][] = $value;
+//		}
+//		$article['comments'] = $comments;
 
-//		print_r($article);
 		return $article;
 	}
 

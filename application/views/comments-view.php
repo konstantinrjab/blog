@@ -7,5 +7,5 @@
  */
 ?>
 
-<div class="card-header"><?= $comment['name'] ?></div>
+<div class="card-header">By: <?= $comment['name'] ?></div>
 <div class="card-body"><?= $comment['comment_text'] ?></div>
