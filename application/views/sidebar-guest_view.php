@@ -19,7 +19,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
         </div>
-        <input type="submit" class="btn btn-primary" value="Sign In" name="signin">
-        <a href="signup" class="btn btn-primary">Sign Up</a>
+        <input type="submit" class="btn btn-primary mb-2" value="Sign In" name="signin">
+        <a href="signup" class="btn btn-primary mb-2">Sign Up</a>
     </form>
 </div>

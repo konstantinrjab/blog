@@ -7,15 +7,16 @@
  */
 ?>
 
-<div class="article__comment" article_id="<?= $article['article_id'] ?>">
+<div class="article__comment"
+     article_id="<?= $article['article_id'] ?>"
+     comment_id="<?= $comment['comment_id'] ?>">
     <div class="card-header">By: <?= $comment['name'] ?></div>
-    <div class="card-body"><?= $comment['comment_text'] ?>
-        <textarea class="comment__textarea mt-3 w-100" style="display: none;" name="comment__body"
-                  article_id="<?= $article['article_id'] ?>"
+    <div class="card-body">
+        <p><?= $comment['comment_text'] ?></p>
+        <textarea class="comment__textarea w-100" style="display: none;"
                   comment_id="<?= $comment['comment_id'] ?>"
                   rows="2"></textarea>
-        <button class="btn btn-primary comment__button mt-1" style="display: none;"
-                article_id="<?= $article['article_id'] ?>" comment_id="<?= $comment['comment_id'] ?>">Reply
-        </button>
+        <button class="btn btn-primary article__button_comment" style="display: none;"
+                comment_id="<?= $comment['comment_id'] ?>">Reply</button>
     </div>
 </div>
