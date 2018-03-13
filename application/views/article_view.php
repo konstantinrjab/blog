@@ -63,6 +63,7 @@ if ($data['article']) {
                                   parent_id="0"
                                   rows="2"></textarea>
                         <button class="btn btn-primary article__button_comment mt-1"
+                                onClick="comment(this);"
                                 article_id="<?= $article['article_id'] ?>"
                                 parent_id="0">Comment</button>
                         <div class="article__comments_area mt-3" article_id="<?= $article['article_id'] ?>">

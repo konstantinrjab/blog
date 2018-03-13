@@ -8,6 +8,7 @@
 ?>
 
 <div class="article__comment"
+     onClick="reply(this);"
      article_id="<?= $article['article_id'] ?>"
      comment_id="<?= $comment['comment_id'] ?>">
     <div class="card-header">By: <?= $comment['name'] ?></div>
@@ -18,6 +19,7 @@
                   parent_id="<?= $comment['comment_id'] ?>"
                   rows="2"></textarea>
         <button class="btn btn-primary article__button_comment" style="display: none;"
+                onClick="comment(this);"
                 article_id="<?= $article['article_id'] ?>"
                 parent_id="<?= $comment['comment_id'] ?>">Reply</button>
     </div>

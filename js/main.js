@@ -32,59 +32,60 @@ $(document).ready(function () {
         });
     });
 
-    $('button.article__button_comment').click(function () {
-        var article_id = $(this).attr('article_id');
-        var parent_id = $(this).attr('parent_id');
-        var textarea = $('textarea[article_id="' + article_id + '"][parent_id="' + parent_id + '"]');
-        var text = $(textarea).val();
+    // $('button.article__button_comment').click(function () {
 
-        if (text.length) {
-            sendComment(article_id, parent_id, text, textarea)
-        }
-    });
 
-    // on reply
-    $('div.article__comment').click(function () {
-        var article_id = $(this).attr('article_id');
-        var comment_id = $(this).attr('comment_id');
-        //show btn and textarea
-        var textarea = $('textarea[parent_id="' + comment_id + '"]');
-        var button = $('button[parent_id="' + comment_id + '"]');
-        $(textarea).show();
-        $(button).show();
-        // var text = $(textarea).val();
-        //
-        // if (text.length) {
-        //     sendComment(article_id, parent_id, text)
-        // }
-    });
+
 });
 
+function comment(button) {
+    var article_id = $(button).attr('article_id');
+    var parent_id = $(button).attr('parent_id');
+    var textarea = $('textarea[article_id="' + article_id + '"][parent_id="' + parent_id + '"]');
+    var text = $(textarea).val();
+
+    if (text.length) {
+        sendComment(article_id, parent_id, text, textarea)
+    }
+}
+
+function reply(area) {
+    // var article_id = $(area).attr('article_id');
+    var comment_id = $(area).attr('comment_id');
+    var textarea = $('textarea[parent_id="' + comment_id + '"]');
+    var button = $('button[parent_id="' + comment_id + '"]');
+    $(textarea).show();
+    $(button).show();
+    console.log(11);
+}
+
 function sendComment(article_id, parent_id, text, textarea) {
-    $.ajax({
-        type: 'POST',
-        url: 'application/core/comment-ajax.php',
-        dataType: 'html',
-        data: {
-            'article_id': article_id,
-            'comment': true,
-            'text': text,
-            'parent_id': parent_id
-        },
-        success: function (data) {
-            // data = $.parseJSON(data);
-            if (data === 'login error') {
-                alert('You have to sign in');
-            } else {
-                comment_area = $('div.article__comments_area[article_id="' + article_id + '"]');
-                $(comment_area).empty();
-                $(textarea).val('');
-                $(comment_area).append(data);
+    if ((text).length) {
+        $.ajax({
+            type: 'POST',
+            url: 'application/core/comment-ajax.php',
+            dataType: 'html',
+            data: {
+                'article_id': article_id,
+                'comment': true,
+                'text': text,
+                'parent_id': parent_id
+            },
+            success: function (data) {
+                // data = $.parseJSON(data);
+                if (data === 'login error') {
+                    alert('You have to sign in');
+                } else {
+                    comment_area = $('div.article__comments_area[article_id="' + article_id + '"]');
+                    $(comment_area).empty();
+                    $(textarea).val('');
+                    $(comment_area).append(data);
+                }
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
             }
-        },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-        }
-    });
+        });
+    }
 }
