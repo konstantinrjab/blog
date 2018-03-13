@@ -58,7 +58,7 @@ if ($data['article']) {
 				<?php if ($article['intro'] !== true) : ?>
                     <!-- Comments-->
                     <div class="article__comments" article_id="<?= $article['article_id'] ?>">
-                        <textarea class="comment__textarea mt-3 w-100" name="comment__body"
+                        <textarea class="comment__textarea mt-3 w-100"
                                   article_id="<?= $article['article_id'] ?>"
                                   parent_id="0"
                                   rows="2"></textarea>

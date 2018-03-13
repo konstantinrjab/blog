@@ -39,7 +39,7 @@ $(document).ready(function () {
         var text = $(textarea).val();
 
         if (text.length) {
-            sendComment(article_id, parent_id, text)
+            sendComment(article_id, parent_id, text, textarea)
         }
     });
 
@@ -48,8 +48,8 @@ $(document).ready(function () {
         var article_id = $(this).attr('article_id');
         var comment_id = $(this).attr('comment_id');
         //show btn and textarea
-        var textarea = $('textarea[comment_id="' + comment_id + '"]');
-        var button = $('button[comment_id="' + comment_id + '"]');
+        var textarea = $('textarea[parent_id="' + comment_id + '"]');
+        var button = $('button[parent_id="' + comment_id + '"]');
         $(textarea).show();
         $(button).show();
         // var text = $(textarea).val();
@@ -60,7 +60,7 @@ $(document).ready(function () {
     });
 });
 
-function sendComment(article_id, parent_id, text) {
+function sendComment(article_id, parent_id, text, textarea) {
     $.ajax({
         type: 'POST',
         url: 'application/core/comment-ajax.php',

@@ -14,9 +14,11 @@
     <div class="card-body">
         <p><?= $comment['comment_text'] ?></p>
         <textarea class="comment__textarea w-100" style="display: none;"
-                  comment_id="<?= $comment['comment_id'] ?>"
+                  article_id="<?= $article['article_id'] ?>"
+                  parent_id="<?= $comment['comment_id'] ?>"
                   rows="2"></textarea>
         <button class="btn btn-primary article__button_comment" style="display: none;"
-                comment_id="<?= $comment['comment_id'] ?>">Reply</button>
+                article_id="<?= $article['article_id'] ?>"
+                parent_id="<?= $comment['comment_id'] ?>">Reply</button>
     </div>
 </div>
