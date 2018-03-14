@@ -7,14 +7,12 @@
  */
 ?>
 
-<div class="article__comment pl-<?=$level*5?>"
+<div class="article__comment"
+     style="padding-left: <?=$level*20?>px;"
      onClick="reply(this);"
      article_id="<?= $comment['article_id'] ?>"
      comment_id="<?= $comment['comment_id'] ?>">
-    <?php
-    echo $comment['parent_id'].'  ';
-    echo $comment['comment_id'];
-    ?>
+
     <div class="card-header">By: <?= $comment['name'] ?></div>
     <div class="card-body">
         <p><?= $comment['comment_text'] ?></p>

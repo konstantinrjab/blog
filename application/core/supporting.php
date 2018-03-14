@@ -7,32 +7,29 @@
  */
 
 function outComments($article) {
-	$parent_id = 0;
-	//есть родительские
-	$level = 0;
-//	print_r($article['comments']);
 	$comments = $article['comments'];
 	foreach ($comments as $comment) {
 		if ($comment['parent_id'] == 0) {
-			outTree(0, $comments, $comment, $level);
+			echo 'parent ';
+			include('application/views/comment-view.php');
+			outTree(0, $comments, $comment, 1);
 		}
 	}
-//	outTree($parent_id, $article['comments'], $level);
 }
 
 function outTree($parent_id, $comments, $comment, $level) {
-	print_r($comment);
 
-//	if ($level > 10) {
-//		exit();
-//	}
 	//если есть чайлд
+	$parent_id = $comment['comment_id'];
+
 	foreach ($comments as $comment) {
 		if ($comment['parent_id'] == $parent_id) {
+//			echo 'child ';
+			print_r($comment);
+			echo 'parent_id =  '.$parent_id.'<br>';
+			echo $level;
 			include('application/views/comment-view.php');
 			$level++;
-			$parent_id = $comment['comment_id'];
-			echo $parent_id.'!!!!!!!!!!';
 			outTree($parent_id, $comments, $comment, $level);
 		}
 	}
