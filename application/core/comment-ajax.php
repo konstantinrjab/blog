@@ -32,6 +32,4 @@ $stmt->execute(array(
 
 $model = new Model($pdo);
 $article = $model->get_article($article_id);
-foreach ($article['comments'] as $comment){
-	include('application/views/comment-view.php');
-}
+outComments($article);

@@ -68,14 +68,14 @@ if ($data['article']) {
                         <div class="article__comments_area mt-3" article_id="<?= $article['article_id'] ?>">
 
 							<?php
-
-							foreach ($article['comments'] as $comment) {
-								//есть родительские
-								if ($comment['parent_id'] == 0) {
-									$level = 0;
-									outTree($comment, $article['comments'], $level);
-								}
-							}
+							outComments($article);
+							//	foreach ($article['comments'] as $comment) {
+							//		//есть родительские
+							//		if ($comment['parent_id'] == 0) {
+							//			$level = 0;
+							//			outTree($comment, $article['comments'], $level);
+							//		}
+							//	}
 							?>
                         </div>
                     </div>

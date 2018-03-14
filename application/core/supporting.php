@@ -6,13 +6,20 @@
  * Time: 22:20
  */
 
+function outComments($article){
+	foreach ($article['comments'] as $comment) {
+		//есть родительские
+		if ($comment['parent_id'] == 0) {
+			$level = 0;
+			outTree($comment, $article['comments'], $level);
+		}
+	}
+
+}
+
 function outTree($comment, $comments, $level) {
-
+//	print_r($comment);
 	include('application/views/comment-view.php');
-
-//echo $level;
-//echo $comment['comment_text'].'<br>';
-
 	$comment_id = $comment['comment_id'];
 
 //if ($level > 10) {
