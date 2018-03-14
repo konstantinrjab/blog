@@ -18,10 +18,8 @@ if ($data['article']) {
 						<?= $article['title'] ?></a>
                 </h3>
 
-                <p class="tag d-inline">Tags:
-					<?php foreach ($article['tag'] as $tag) {
-						echo $tag.', ';
-					} ?>
+                <p class="tag d-inline">
+                    Tags: <?php echo implode(', ', $article['tag']); ?>
                 </p>
             </div>
             <div class="article__body card-body">
@@ -65,19 +63,40 @@ if ($data['article']) {
                         <button class="btn btn-primary article__button_comment mt-1"
                                 onClick="comment(this);"
                                 article_id="<?= $article['article_id'] ?>"
-                                parent_id="0">Comment</button>
+                                parent_id="0">Comment
+                        </button>
                         <div class="article__comments_area mt-3" article_id="<?= $article['article_id'] ?>">
 
 							<?php
-							foreach ($article['comments'] as $comment) {
-								// print_r($comment);
-								include('comment-view.php');
-							}
-							// $level = 0;
-							// $parent_id = 0;
-							// $comments = $article['comments'];
-							// outComments($comments,0,0);
+							function outTree($comment, $comments, $level) {
 
+								include('comment-view.php');
+
+//								echo $level;
+//								echo $comment['comment_text'].'<br>';
+
+								$comment_id = $comment['comment_id'];
+//								echo $parent_id;
+								if ($level > 10) {
+									exit();
+								}
+								//если есть чайлд
+								foreach ($comments as $comment) {
+									if ($comment['parent_id'] == $comment_id) {
+										$level++;
+										outTree($comment, $comments, $level);
+									}
+								}
+
+							}
+							$comments = $article['comments'];
+							foreach ($comments as $comment) {
+								//есть родительские
+								if ($comment['parent_id'] == 0) {
+									$level = 0;
+									outTree($comment, $comments, $level);
+								}
+							}
 							?>
                         </div>
                     </div>

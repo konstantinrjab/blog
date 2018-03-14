@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="article__comment"
+<div class="article__comment pl-<?=$level*5?>"
      onClick="reply(this);"
      article_id="<?= $article['article_id'] ?>"
      comment_id="<?= $comment['comment_id'] ?>">
