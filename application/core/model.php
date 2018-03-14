@@ -83,7 +83,11 @@ WHERE article_id = :ai');
 		$article['images'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 		//get comments
-		$stmt = $this->pdo->prepare('SELECT comments.article_id, comments.parent_id, comments.comment_id, comments.comment_text, user.name
+		$stmt = $this->pdo->prepare('SELECT comments.article_id,
+ comments.parent_id, 
+ comments.comment_id, 
+ comments.comment_text, 
+ user.name
 FROM comments
 JOIN user ON comments.author = user.user_id
 WHERE article_id = :ai');
@@ -109,7 +113,7 @@ WHERE article_id = :ai AND user_id = :ui');
 		));
 
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		if (!empty($result)) {
+		if ( !empty($result)) {
 			return true;
 		} else {
 			return false;

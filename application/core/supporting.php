@@ -6,34 +6,64 @@
  * Time: 22:20
  */
 
-function outComments($article){
-	foreach ($article['comments'] as $comment) {
-		//есть родительские
+function outComments($article) {
+	$parent_id = 0;
+	//есть родительские
+	$level = 0;
+//	print_r($article['comments']);
+	$comments = $article['comments'];
+	foreach ($comments as $comment) {
 		if ($comment['parent_id'] == 0) {
-			$level = 0;
-			outTree($comment, $article['comments'], $level);
+			outTree(0, $comments, $comment, $level);
 		}
 	}
-
+//	outTree($parent_id, $article['comments'], $level);
 }
 
-function outTree($comment, $comments, $level) {
-//	print_r($comment);
-	include('application/views/comment-view.php');
-	$comment_id = $comment['comment_id'];
+function outTree($parent_id, $comments, $comment, $level) {
+	print_r($comment);
 
-//if ($level > 10) {
-//	exit();
-//}
+//	if ($level > 10) {
+//		exit();
+//	}
 	//если есть чайлд
 	foreach ($comments as $comment) {
-		if ($comment['parent_id'] == $comment_id) {
+		if ($comment['parent_id'] == $parent_id) {
+			include('application/views/comment-view.php');
 			$level++;
-			outTree($comment, $comments, $level);
+			$parent_id = $comment['comment_id'];
+			echo $parent_id.'!!!!!!!!!!';
+			outTree($parent_id, $comments, $comment, $level);
 		}
 	}
-
 }
+
+//function outComments($article){
+//	foreach ($article['comments'] as $comment) {
+//		//есть родительские
+//		if ($comment['parent_id'] == 0) {
+//			$level = 0;
+//			outTree($comment, $article['comments'], $level);
+//		}
+//	}
+//}
+//
+//function outTree($comment, $comments, $level) {
+////	print_r($comment);
+//	include('application/views/comment-view.php');
+//	$comment_id = $comment['comment_id'];
+//
+////if ($level > 10) {
+////	exit();
+////}
+//	//если есть чайлд
+//	foreach ($comments as $comment) {
+//		if ($comment['parent_id'] == $comment_id) {
+//			$level++;
+//			outTree($comment, $comments, $level);
+//		}
+//	}
+//}
 
 function translit($s) {
 	$s = (string) $s; // преобразуем в строковое значение
