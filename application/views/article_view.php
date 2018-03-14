@@ -68,33 +68,12 @@ if ($data['article']) {
                         <div class="article__comments_area mt-3" article_id="<?= $article['article_id'] ?>">
 
 							<?php
-							function outTree($comment, $comments, $level) {
 
-								include('comment-view.php');
-
-//								echo $level;
-//								echo $comment['comment_text'].'<br>';
-
-								$comment_id = $comment['comment_id'];
-//								echo $parent_id;
-								if ($level > 10) {
-									exit();
-								}
-								//если есть чайлд
-								foreach ($comments as $comment) {
-									if ($comment['parent_id'] == $comment_id) {
-										$level++;
-										outTree($comment, $comments, $level);
-									}
-								}
-
-							}
-							$comments = $article['comments'];
-							foreach ($comments as $comment) {
+							foreach ($article['comments'] as $comment) {
 								//есть родительские
 								if ($comment['parent_id'] == 0) {
 									$level = 0;
-									outTree($comment, $comments, $level);
+									outTree($comment, $article['comments'], $level);
 								}
 							}
 							?>

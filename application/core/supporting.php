@@ -6,27 +6,26 @@
  * Time: 22:20
  */
 
-function outComments($comments, $parent_id, $level) {
-	if($level > 10){
-		exit();
-	}
-	print_r($comments);
-	if (isset($comments['parent_id'])) {
-		foreach ($comments['parent_id'] as $comment) {
-//			print_r($comment);
-			echo "
-				<div class='comment' comment_id=".$comment['comment_id']." article_id=".$comment['article_id'].">
-					<p>Written by: ".$comment['name']."</p>
-					<div style='margin-left:".($level * 25)."px;'>".$comment['comment']."
-					</div>
-					<textarea class='form-control form-comment-c' comment_id=".$comment['comment_id']." placeholder='Reply ".$comment['name']."'></textarea>
-				</div>";
-			$level++;
-			outComments($comments, $parent_id, $level);
-			$level--;
-		}
+function outTree($comment, $comments, $level) {
 
+	include('application/views/comment-view.php');
+
+//echo $level;
+//echo $comment['comment_text'].'<br>';
+
+	$comment_id = $comment['comment_id'];
+
+//if ($level > 10) {
+//	exit();
+//}
+	//если есть чайлд
+	foreach ($comments as $comment) {
+		if ($comment['parent_id'] == $comment_id) {
+			$level++;
+			outTree($comment, $comments, $level);
+		}
 	}
+
 }
 
 function translit($s) {
