@@ -8,59 +8,21 @@
 
 function outComments($article) {
 	$comments = $article['comments'];
-	foreach ($comments as $comment) {
-		if ($comment['parent_id'] == 0) {
-			echo 'parent ';
-			include('application/views/comment-view.php');
-			outTree(0, $comments, $comment, 1);
-		}
-	}
+	outTree(0, $comments, 0);
 }
 
-function outTree($parent_id, $comments, $comment, $level) {
+function outTree($parent_id, $comments, $level) {
 
 	//если есть чайлд
-	$parent_id = $comment['comment_id'];
-
+//	$parent_id = $comment['comment_id'];
+//	echo 'parent_id =  '.$parent_id.'<br>';
 	foreach ($comments as $comment) {
 		if ($comment['parent_id'] == $parent_id) {
-//			echo 'child ';
-			print_r($comment);
-			echo 'parent_id =  '.$parent_id.'<br>';
-			echo $level;
 			include('application/views/comment-view.php');
-			$level++;
-			outTree($parent_id, $comments, $comment, $level);
+			outTree($comment['comment_id'], $comments, $level+1);
 		}
 	}
 }
-
-//function outComments($article){
-//	foreach ($article['comments'] as $comment) {
-//		//есть родительские
-//		if ($comment['parent_id'] == 0) {
-//			$level = 0;
-//			outTree($comment, $article['comments'], $level);
-//		}
-//	}
-//}
-//
-//function outTree($comment, $comments, $level) {
-////	print_r($comment);
-//	include('application/views/comment-view.php');
-//	$comment_id = $comment['comment_id'];
-//
-////if ($level > 10) {
-////	exit();
-////}
-//	//если есть чайлд
-//	foreach ($comments as $comment) {
-//		if ($comment['parent_id'] == $comment_id) {
-//			$level++;
-//			outTree($comment, $comments, $level);
-//		}
-//	}
-//}
 
 function translit($s) {
 	$s = (string) $s; // преобразуем в строковое значение
