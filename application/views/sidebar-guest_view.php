@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="sidebar">
+<div class="sidebar mt-3 p-3 bg-light">
     <p class="lead">Sign in</p>
 	<?php include "info-window.php"; ?>
     <form method="post">

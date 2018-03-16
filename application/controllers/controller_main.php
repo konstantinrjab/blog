@@ -16,14 +16,16 @@ class Controller_Main extends Controller {
 		$this->view  = new View();
 	}
 
-	function action_index() {
+	function page($page) {
+		echo $page;
 		$this->user = new User($this->model->pdo);
 		$data          = $this->model->getSidebar($this->user);
 		$data['flash'] = $this->model->checkFlash();
 		$this->model->checkSignIn($this->user);
 		$this->model->checkLogOut($this->user);
 
-		$data['articles'] = $this->model->get_articles();
+		$data['articles'] = $this->model->getArticlesByPage($page, 3);
+//		$data['articles'] = $this->model->get_articles();
 		foreach ($data['articles'] as &$article) {
 			$article['liked'] = $this->model->getLikeStatus($article['article_id'], $this->user->id);
 		}

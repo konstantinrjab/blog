@@ -12,7 +12,7 @@ if ($data['article']) {
 ?>
 <div class="row">
     <div class="col-12">
-        <div class="article card">
+        <div class="article card bg-light mt-3">
             <div class="article__header card-header">
                 <h3 class="title"><a href="/article/<?= $article['article_id'] ?>">
 						<?= $article['title'] ?></a>
@@ -31,12 +31,20 @@ if ($data['article']) {
 				<?php endif; ?>
             </div>
 
-			<?php if ( !$article['intro']) : ?>
-				<?php foreach ($article['images'] as $image) : ?>
-                    <img class="article__img" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/'.$image; ?>">
-				<?php endforeach; ?>
-			<?php endif; ?>
+            <!-- Images -->
+			<div class="container">
+                <div class="row">
+					<?php if ( !$article['intro']) : ?>
+						<?php foreach ($article['images'] as $image) : ?>
+                            <div class="col-md-6 col-lg-4 col-12">
+                                <img class="article__img rounded img-fluid" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/'.$image; ?>">
+                            </div>
+						<?php endforeach; ?>
+					<?php endif; ?>
+                </div>
+            </div>
 
+            <!-- Footer -->
             <div class="article__footer card-footer">
                 <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
                 <p class="article__author d-inline">Author: <?= $article['name'] ?> </p>
@@ -54,7 +62,7 @@ if ($data['article']) {
                 </button>
 
 				<?php if ($article['intro'] !== true) : ?>
-                    <!-- Comments-->
+                    <!-- Comments -->
                     <div class="article__comments" article_id="<?= $article['article_id'] ?>">
                         <textarea class="comment__textarea mt-3 w-100"
                                   article_id="<?= $article['article_id'] ?>"
@@ -67,16 +75,8 @@ if ($data['article']) {
                         </button>
                         <div class="article__comments_area mt-3" article_id="<?= $article['article_id'] ?>">
 
-							<?php
-							outComments($article);
-							//	foreach ($article['comments'] as $comment) {
-							//		//есть родительские
-							//		if ($comment['parent_id'] == 0) {
-							//			$level = 0;
-							//			outTree($comment, $article['comments'], $level);
-							//		}
-							//	}
-							?>
+							<?php outComments($article); ?>
+
                         </div>
                     </div>
 				<?php endif; ?>

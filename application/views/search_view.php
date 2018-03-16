@@ -14,12 +14,10 @@
 
 		<?php
 		if ($data['articles']) {
-			foreach ($data['articles'] as $data['article']) : ?>
-
-				<?php
+			foreach ($data['articles'] as $data['article']) {
 				$data['article']['intro'] = true;
-				include('article_view.php'); ?>
-			<?php endforeach;
+				include('article_view.php');
+			}
 		} else {
 			echo 'Empty';
 		} ?>

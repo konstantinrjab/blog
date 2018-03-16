@@ -29,8 +29,4 @@ class Controller_Article extends Controller {
 		$data['article']['liked'] = $this->model->getLikeStatus($data['article']['article_id'], $this->user->id);
 		$this->view->generate('article_view.php', 'template_view.php', $data);
 	}
-
-	function action_index() {
-
-	}
 }

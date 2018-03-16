@@ -7,15 +7,10 @@
  */
 
 function outComments($article) {
-	$comments = $article['comments'];
-	outTree(0, $comments, 0);
+	outTree(0, $article['comments'], 0);
 }
 
 function outTree($parent_id, $comments, $level) {
-
-	//если есть чайлд
-//	$parent_id = $comment['comment_id'];
-//	echo 'parent_id =  '.$parent_id.'<br>';
 	foreach ($comments as $comment) {
 		if ($comment['parent_id'] == $parent_id) {
 			include('application/views/comment-view.php');

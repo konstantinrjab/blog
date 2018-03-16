@@ -7,7 +7,6 @@
  */
 ?>
 
-<!--search-->
 <div class="row">
     <div class="col-12">
         <form action="<?echo 'http://'.$_SERVER['SERVER_NAME'].'/search/article'?>" method="post">

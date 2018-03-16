@@ -5,7 +5,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'application/core/like.php',
+            url: 'application/core/like-ajax.php',
             dataType: 'json',
             data: {
                 'article_id': +article_id,

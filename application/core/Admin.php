@@ -83,7 +83,7 @@ class Admin extends User {
 
 	public function addFile($article_id) {
 		if ( !$_FILES['userfile']['name'] || !$_FILES['userfile']['tmp_name']) {
-			$_SESSION['error'] = 'Is not image/ too big > 3Mb';
+//			$_SESSION['error'] = 'Is not image/ too big > 3Mb';
 
 			return false;
 		}

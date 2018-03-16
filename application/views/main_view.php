@@ -6,6 +6,8 @@
  * Time: 17:33
  */
 ?>
+
+<!--search-->
 <? include('search-bar_view.php') ?>
 <!--articles-->
 <div class="row">

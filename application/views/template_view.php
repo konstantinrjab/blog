@@ -16,9 +16,9 @@
     <!--    <link rel="icon" href="favicon.ico" type="image/x-icon">-->
     <title>Главная</title>
 </head>
-<body>
+<body class="mt-3">
 <!--menu-->
-<div class="container">
+<header class="container">
     <div class="row">
         <div class="col-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
@@ -47,21 +47,19 @@
             </nav>
         </div>
     </div>
-</div>
+</header>
 <!--page-->
 <div class="container">
 	<?php include 'application/views/'.$content_view; ?>
 </div>
 <!--footer-->
-<div class="container">
+<footer class="container mt-3 bg-light">
     <div class="row">
         <div class="col-12">
-            <footer>
-                <p class="text-center">Blog 2</p>
-            </footer>
+            <p class="text-center m-1">Blog 2</p>
         </div>
     </div>
-</div>
+</footer>
 </body>
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>

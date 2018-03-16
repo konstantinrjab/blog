@@ -33,13 +33,32 @@ class Model {
 	}
 
 	public function get_articles() {
-
-		$stmt     = $this->pdo->query('SELECT article.article_id FROM article ORDER BY date DESC');
+		$stmt     = $this->pdo->query('SELECT article.article_id 
+FROM article 
+ORDER BY date DESC');
 		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($articles as &$article) {
 			$article = $this->get_article($article['article_id']);
 		}
+
+		return $articles;
+	}
+
+	function getArticlesByPage($page, $num_on_page) {
+		$stmt = $this->pdo->prepare('SELECT article_id 
+FROM article 
+ORDER BY date DESC 
+LIMIT :lim OFFSET :off');
+		$stmt->bindParam(':lim', intval($num_on_page, 10), PDO::PARAM_INT);
+		$stmt->bindParam(':off', intval($page * $num_on_page-$num_on_page, 10), PDO::PARAM_INT);
+		$stmt->execute();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		foreach ($result as $r) {
+			$articles[] = $this->get_article($r['article_id']);
+		}
+
 
 		return $articles;
 	}
@@ -95,10 +114,6 @@ WHERE article_id = :ai');
 			':ai' => $article_id
 		));
 		$article['comments'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//		foreach ($result as $value) {
-//			$comments[$value->parent_id][] = $value;
-//		}
-//		$article['comments'] = $comments;
 
 		return $article;
 	}
@@ -119,6 +134,7 @@ WHERE article_id = :ai AND user_id = :ui');
 			return false;
 		}
 	}
+
 
 //	function translit($s) {
 //		$s = (string) $s; // преобразуем в строковое значение

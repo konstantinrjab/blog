@@ -56,18 +56,22 @@ class Route {
 		$controller = new $controller_name($pdo);
 		$action     = $action_name;
 
-		if (method_exists($controller, $action)) {
-			// вызываем действие контроллера
-//			print_r($_SESSION);
-			$controller->$action();
-		} //поставили лайк
-		else if (method_exists($controller, 'getArticle') && empty($_POST['article_id'])) {
+		if (get_class($controller) == 'Controller_Article') {
 			$id = preg_replace('/[^0-9]/', '', $action);
 			$controller->getArticle($id);
-
-		} elseif ($_POST['article_id'] && $_POST['like']) {
-			require_once('like.php');
-		} elseif ($_POST['article_id'] && $_POST['comment']) {
+		} elseif (get_class($controller) == 'Controller_Main') {
+			$page = preg_replace('/[^0-9]/', '', $action);
+			$controller->page($page);
+		} elseif (method_exists($controller, $action)) {
+			// вызываем действие контроллера
+			$controller->$action();
+		} //страница статьи
+		//редирект на php файл который обработает ajax запрос
+		//поставили лайк
+		elseif ($_POST['article_id'] && $_POST['like']) {
+			require_once('like-ajax.php');
+		} //комментарий
+		elseif ($_POST['article_id'] && $_POST['comment']) {
 			require_once('comment-ajax.php');
 		} else {
 			Route::ErrorPage404();
