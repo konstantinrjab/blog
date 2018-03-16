@@ -14,7 +14,7 @@ class Model_Admin extends Model {
 	}
 
 	public function get_articles() {
-		return parent::get_articles();
+		return parent::getArticlesByPage(1,999);
 	}
 
 	public function checkArticle() {

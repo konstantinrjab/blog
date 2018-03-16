@@ -7,8 +7,8 @@
  */
 
 if (isset($data['flash']['error'])) : ?>
-	<p class="lead text-danger"><?php echo $data['flash']['error']; ?></p>
+	<p class="lead text-danger mt-3"><?php echo $data['flash']['error']; ?></p>
 <?php endif; ?>
 	<?php if (isset($data['flash']['message'])) : ?>
-	<p class="lead text-success"><?php echo $data['flash']['message']; ?></p>
+	<p class="lead text-success mt-3"><?php echo $data['flash']['message']; ?></p>
 <?php endif; ?>

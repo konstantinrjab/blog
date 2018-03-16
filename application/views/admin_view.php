@@ -8,8 +8,8 @@
 ?>
 <div class="row">
     <div class="col-12">
-        <a href="http://<?= $_SERVER['SERVER_NAME'] ?>/admin/createArticle"
-           type="submit" class="btn btn-primary">Create Article</a>
+        <a class="btn btn-primary mt-3 mb-1" href="http://<?= $_SERVER['SERVER_NAME'] ?>/admin/createArticle"
+           type="submit">Create Article</a>
 	    <?php include "info-window.php"; ?>
     </div>
     <div class="col-12">

@@ -61,6 +61,9 @@ class Route {
 			$controller->getArticle($id);
 		} elseif (get_class($controller) == 'Controller_Main') {
 			$page = preg_replace('/[^0-9]/', '', $action);
+			if(!$page){
+				$page = 1;
+			}
 			$controller->page($page);
 		} elseif (method_exists($controller, $action)) {
 			// вызываем действие контроллера
