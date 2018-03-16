@@ -23,7 +23,7 @@ class Controller_Main extends Controller {
 		$this->model->checkSignIn($this->user);
 		$this->model->checkLogOut($this->user);
 
-		$num_on_page = 2;
+		$num_on_page = 1;
 		$data['articles'] = $this->model->getArticlesByPage($page, $num_on_page);
 		if (empty($data['articles'])) {
 			$this->redirect_404();

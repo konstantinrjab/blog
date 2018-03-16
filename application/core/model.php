@@ -127,7 +127,6 @@ WHERE article_id = :ai AND user_id = :ui');
 		$stmt                  = $this->pdo->query('SELECT COUNT(article_id) AS count FROM article');
 		$result                = $stmt->fetch(PDO::FETCH_ASSOC);
 		$pagination['last'] = ceil($result['count']/$num_on_page);
-		print_r($pagination);
 
 		return $pagination;
 	}
