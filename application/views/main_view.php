@@ -8,14 +8,14 @@
 ?>
 
 <!--search-->
-<? include('search-bar_view.php') ?>
+<? include('search-bar.php') ?>
 <!--articles-->
 <div class="row">
     <div class="col-md-3 order-md-2">
 		<?php if ($_SESSION['auth']) {
-			include('sidebar-auth_view.php');
+			include('sidebar-auth.php');
 		} else {
-			include('sidebar-guest_view.php');
+			include('sidebar-guest.php');
 		}
 		?>
     </div>
@@ -30,4 +30,7 @@
 		<?php endforeach; ?>
 
     </div>
+</div>
+<div class="row">
+  <?php include 'pagination.php'?>
 </div>

@@ -32,19 +32,6 @@ class Model {
 		}
 	}
 
-	public function get_articles() {
-		$stmt     = $this->pdo->query('SELECT article.article_id 
-FROM article 
-ORDER BY date DESC');
-		$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-		foreach ($articles as &$article) {
-			$article = $this->get_article($article['article_id']);
-		}
-
-		return $articles;
-	}
-
 	function getArticlesByPage($page, $num_on_page) {
 		$stmt = $this->pdo->prepare('SELECT article_id 
 FROM article 
@@ -58,7 +45,6 @@ LIMIT :lim OFFSET :off');
 		foreach ($result as $r) {
 			$articles[] = $this->get_article($r['article_id']);
 		}
-
 
 		return $articles;
 	}
@@ -135,7 +121,16 @@ WHERE article_id = :ai AND user_id = :ui');
 		}
 	}
 
+	function getPagination($page, $num_on_page) {
 
+		$pagination['current'] = $page;
+		$stmt                  = $this->pdo->query('SELECT COUNT(article_id) AS count FROM article');
+		$result                = $stmt->fetch(PDO::FETCH_ASSOC);
+		$pagination['last'] = ceil($result['count']/$num_on_page);
+		print_r($pagination);
+
+		return $pagination;
+	}
 //	function translit($s) {
 //		$s = (string) $s; // преобразуем в строковое значение
 //		$s = strip_tags($s); // убираем HTML-теги

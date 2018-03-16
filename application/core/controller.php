@@ -16,7 +16,9 @@ class Controller {
 		$this->view = new View();
 	}
 
-	function action_index()
+	function redirect_404()
 	{
+		header('Location: http://'.$_SERVER['SERVER_NAME'].'/404');
+		return;
 	}
 }

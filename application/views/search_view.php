@@ -6,7 +6,7 @@
  * Time: 17:33
  */
 ?>
-<? include('search-bar_view.php') ?>
+<? include('search-bar.php') ?>
 <!--articles-->
 <div class="row">
     <div class="col-12">
