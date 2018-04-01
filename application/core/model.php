@@ -17,6 +17,7 @@ class Model {
 	}
 
 	public function checkFlash() {
+		$flash = '';
 		if ( !empty($_SESSION['error'])) {
 			$flash['error'] = $_SESSION['error'];
 			unset($_SESSION['error']);
@@ -25,7 +26,7 @@ class Model {
 			$flash['message'] = $_SESSION['message'];
 			unset($_SESSION['message']);
 		}
-		if ($flash) {
+		if (empty($flash)) {
 			return $flash;
 		} else {
 			return false;
@@ -37,8 +38,10 @@ class Model {
 FROM article 
 ORDER BY date DESC 
 LIMIT :lim OFFSET :off');
-		$stmt->bindParam(':lim', intval($num_on_page, 10), PDO::PARAM_INT);
-		$stmt->bindParam(':off', intval($page * $num_on_page-$num_on_page, 10), PDO::PARAM_INT);
+		$lim = intval($num_on_page, 10);
+		$off = intval($page * $num_on_page-$num_on_page, 10);
+		$stmt->bindParam(':lim', $lim, PDO::PARAM_INT);
+		$stmt->bindParam(':off', $off, PDO::PARAM_INT);
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

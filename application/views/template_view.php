@@ -41,7 +41,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
-			  <?php if ($_SESSION['user']['position'] == 'admin') : ?>
+			  <?php if (isset($_SESSION['user']['position']) && $_SESSION['user']['position'] == 'admin') : ?>
                 <li class="nav-item">
                   <a href="http://<?= $_SERVER['SERVER_NAME'].$GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/admin"
                      class="nav-link">Admin panel</a>

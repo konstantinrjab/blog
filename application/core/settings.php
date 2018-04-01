@@ -7,4 +7,4 @@
  */
 
 global $PATH_TO_ROOT_Directory_Project;
-$PATH_TO_ROOT_Directory_Project = '';
+$PATH_TO_ROOT_Directory_Project = '/blog';

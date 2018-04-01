@@ -67,7 +67,7 @@ class Route {
 			$controller->getArticle($id);
 		} elseif (get_class($controller) == 'Controller_Main') {
 			$page = preg_replace('/[^0-9]/', '', $action);
-			if(!$page){
+			if ( !$page) {
 				$page = 1;
 			}
 			$controller->page($page);

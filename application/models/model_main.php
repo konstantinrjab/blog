@@ -17,7 +17,7 @@ class Model_Main extends Model {
 	}
 
 	public function getSidebar($user) {
-		if ($_SESSION['auth']) {
+		if (!empty($_SESSION['auth'])) {
 			if ($user->position == 'admin') {
 				$data['sidebar'] = 'admin';
 			} else {

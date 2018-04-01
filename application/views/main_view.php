@@ -12,7 +12,7 @@
 <!--articles-->
 <div class="row">
     <div class="col-md-3 order-md-2">
-		<?php if ($_SESSION['auth']) {
+		<?php if (isset($_SESSION['auth'])) {
 			include('sidebar-auth.php');
 		} else {
 			include('sidebar-guest.php');
