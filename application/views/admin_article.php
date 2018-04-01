@@ -19,6 +19,7 @@
                 <label for="tag">Tags</label>
 				<?php
 				if ($data['article']['tag']) {
+				  $tags = '';
 					foreach ($data['article']['tag'] as $tag) {
 						$tags .= $tag.',';
 					}
