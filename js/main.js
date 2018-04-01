@@ -1,41 +1,37 @@
-$(document).ready(function () {
-    $('button.article__button_like').click(function () {
-        var button = this;
-        var article_id = $(this).attr('id');
+var path = '';
 
-        $.ajax({
-            type: 'POST',
-            url: 'application/core/like-ajax.php',
-            dataType: 'json',
-            data: {
-                'article_id': +article_id,
-                'like': true
-            },
-            success: function (data) {
-                // data = $.parseJSON(data);
-                if (data === 'guest') {
-                    alert('You have to log in');
-                }
+// $(document).ready(function () {
+$('button.article__button_like').click(function () {
+    var button = this;
+    var article_id = $(this).attr('id');
 
-                $(button).children('span').text(data['count']);
-
-                if (data['action'] === 'add') {
-                    $(button).children('i').show();
-                } else {
-                    $(button).children('i').hide();
-                }
-            },
-            error: function (xhr, status, error) {
-                var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
+    $.ajax({
+        type: 'POST',
+        url: path + '/application/core/like-ajax.php',
+        dataType: 'json',
+        data: {
+            'article_id': +article_id,
+            'like': true
+        },
+        success: function (data) {
+            // data = $.parseJSON(data);
+            if (data === 'guest') {
+                alert('You have to log in');
             }
-        });
+
+            $(button).children('span').text(data['count']);
+
+            if (data['action'] === 'add') {
+                $(button).children('i').show();
+            } else {
+                $(button).children('i').hide();
+            }
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
     });
-
-    // $('button.article__button_comment').click(function () {
-
-
-
 });
 
 function comment(button) {
@@ -56,14 +52,13 @@ function reply(area) {
     var button = $('button[parent_id="' + comment_id + '"]');
     $(textarea).show();
     $(button).show();
-    console.log(11);
 }
 
 function sendComment(article_id, parent_id, text, textarea) {
     if ((text).length) {
         $.ajax({
             type: 'POST',
-            url: 'application/core/comment-ajax.php',
+            url: path + '/application/core/comment-ajax.php',
             dataType: 'html',
             data: {
                 'article_id': article_id,
@@ -89,3 +84,5 @@ function sendComment(article_id, parent_id, text, textarea) {
         });
     }
 }
+
+// });

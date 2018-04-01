@@ -8,6 +8,11 @@
 
 class Route {
 	static function start(PDO $pdo) {
+		if ($GLOBALS['PATH_TO_ROOT_Directory_Project'] !== '') {
+			$route = 2;
+		} else {
+			$route = 1;
+		}
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name     = 'index';
@@ -17,13 +22,13 @@ class Route {
 
 
 		// получаем имя контроллера
-		if ( !empty($routes[1])) {
-			$controller_name = $routes[1];
+		if ( !empty($routes[$route])) {
+			$controller_name = $routes[$route];
 		}
 
 		// получаем имя экшена
-		if ( !empty($routes[2])) {
-			$action_name = $routes[2];
+		if ( !empty($routes[$route+1])) {
+			$action_name = $routes[$route+1];
 		}
 
 		// добавляем префиксы
@@ -44,6 +49,7 @@ class Route {
 		$controller_path = "application/controllers/".$controller_file;
 		if (file_exists($controller_path)) {
 			include "application/controllers/".$controller_file;
+
 		} else {
 			/*
 			правильно было бы кинуть здесь исключение,
@@ -83,9 +89,9 @@ class Route {
 	}
 
 	function ErrorPage404() {
-		$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
 		header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:'.$host.'404');
+		header('Location: http://'.$_SERVER['SERVER_NAME'].$GLOBALS['PATH_TO_ROOT_Directory_Project'].'/404');
+
 	}
 }

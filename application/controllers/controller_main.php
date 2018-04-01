@@ -18,6 +18,7 @@ class Controller_Main extends Controller {
 
 	function page($page) {
 		$this->user    = new User($this->model->pdo);
+
 		$data          = $this->model->getSidebar($this->user);
 		$data['flash'] = $this->model->checkFlash();
 		$this->model->checkSignIn($this->user);
@@ -32,6 +33,7 @@ class Controller_Main extends Controller {
 		foreach ($data['articles'] as &$article) {
 			$article['liked'] = $this->model->getLikeStatus($article['article_id'], $this->user->id);
 		}
+
 		$this->view->generate('main_view.php', 'template_view.php', $data);
 	}
 }

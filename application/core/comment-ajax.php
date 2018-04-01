@@ -8,8 +8,10 @@
 
 require_once('pdo.php');
 require_once('User.php');
+require_once('model.php');
+require_once('supporting.php');
+require_once('settings.php');
 session_start();
-//header('Content-Type: ');
 
 $article_id = $_POST['article_id'];
 $parent_id  = $_POST['parent_id'];
@@ -32,4 +34,4 @@ $stmt->execute(array(
 
 $model = new Model($pdo);
 $article = $model->get_article($article_id);
-outComments($article);
+outComments($article, $_SERVER['DOCUMENT_ROOT'].$GLOBALS['PATH_TO_ROOT_Directory_Project'].'/');

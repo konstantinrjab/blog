@@ -6,15 +6,16 @@
  * Time: 22:20
  */
 
-function outComments($article) {
-	outTree(0, $article['comments'], 0);
+
+function outComments($article, $path) {
+	outTree(0, $article['comments'], 0, $path);
 }
 
-function outTree($parent_id, $comments, $level) {
+function outTree($parent_id, $comments, $level, $path) {
 	foreach ($comments as $comment) {
 		if ($comment['parent_id'] == $parent_id) {
-			include('application/views/comment-view.php');
-			outTree($comment['comment_id'], $comments, $level+1);
+			include($path.'application/views/comment-view.php');
+			outTree($comment['comment_id'], $comments, $level+1, $path);
 		}
 	}
 }

@@ -8,13 +8,12 @@
 
 class Model_Admin extends Model {
 
-
 	public function __construct($pdo) {
 		parent::__construct($pdo);
 	}
 
 	public function get_articles() {
-		return parent::getArticlesByPage(1,999);
+		return parent::getArticlesByPage(1, 999);
 	}
 
 	public function checkArticle() {
@@ -28,7 +27,6 @@ class Model_Admin extends Model {
 			$article['tags']  = preg_split("/[\s,;]+/", $_POST['tag']);
 			//очистка от пустых значений
 			$article['tags'] = array_diff($article['tags'], array(''));
-
 
 			return $article;
 		}

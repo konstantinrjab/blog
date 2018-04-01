@@ -21,7 +21,7 @@ class Controller_Article extends Controller {
 
 		$data['article'] = $this->model->get_article($id);
 		if (empty($data['article']['article_id'])) {
-			header('Location: http://'.$_SERVER['HTTP_HOST'].'/404');
+			Route::ErrorPage404();
 
 			return;
 		}

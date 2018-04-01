@@ -6,7 +6,7 @@
  * Time: 19:07
  */
 
-$page    = 'http://'.$_SERVER['SERVER_NAME'].'/main/';
+$page    = 'http://'.$_SERVER['SERVER_NAME'].$GLOBALS['PATH_TO_ROOT_Directory_Project'].'/main/';
 $last    = $data['pagination']['last'];
 $current = $data['pagination']['current'];
 ?>

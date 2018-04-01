@@ -14,6 +14,7 @@ require_once 'core/view.php';
 require_once 'core/controller.php';
 require_once 'core/supporting.php';
 require_once 'core/route.php';
-session_start();
+require_once 'core/settings.php';
 
-Route::start($pdo); // запускаем маршрутизатор
+session_start();
+Route::start($pdo);

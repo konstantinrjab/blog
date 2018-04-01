@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-12">
-        <form action="<?echo 'http://'.$_SERVER['SERVER_NAME'].'/search/article'?>" method="post">
+        <form action="<?echo 'http://'.$_SERVER['SERVER_NAME'].$GLOBALS['PATH_TO_ROOT_Directory_Project'].'/search/article'?>" method="post">
             <div class="mt-4 input-group mb-3 bg-light">
                 <input type="text" class="form-control" placeholder="Article title" aria-describedby="basic-addon2"
                        name="search-title">

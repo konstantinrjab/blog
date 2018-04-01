@@ -13,7 +13,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h2>Sign Up page!</h2>
+        <h2 class="pt-3">Sign Up page!</h2>
 	    <?php include "info-window.php"; ?>
         <form method="post">
             <div class="form-group">

@@ -18,7 +18,7 @@ class Controller {
 
 	function redirect_404()
 	{
-		header('Location: http://'.$_SERVER['SERVER_NAME'].'/404');
+		Route::ErrorPage404();
 		return;
 	}
 }
