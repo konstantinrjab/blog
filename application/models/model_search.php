@@ -17,7 +17,8 @@ class Model_Search extends Model {
 	}
 
 	public function checkData() {
-		if ( !$_POST['search']) {
+		$search = null;
+		if ( !isset($_POST['search'])) {
 			return false;
 		}
 		if ( !empty(trim($_POST['search-title']))) {
@@ -31,7 +32,8 @@ class Model_Search extends Model {
 	}
 
 	public function getArticlesId($search) {
-		if ($search['date']) {
+		$query = '';
+		if (isset($search['date'])) {
 			$query = 'date = \''.$search['date'].'\'';
 			if ($search['title']) {
 				$query .= ' AND ';
@@ -42,7 +44,7 @@ class Model_Search extends Model {
 			$query .= 'title = \''.$search['title'].'\'';
 		}
 		$query = 'SELECT article_id FROM article WHERE '.$query;
-		$stmt = $this->pdo->prepare($query);
+		$stmt  = $this->pdo->prepare($query);
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

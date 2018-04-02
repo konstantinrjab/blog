@@ -17,7 +17,7 @@ class Model {
 	}
 
 	public function checkFlash() {
-		$flash = '';
+		$flash[] = '';
 		if ( !empty($_SESSION['error'])) {
 			$flash['error'] = $_SESSION['error'];
 			unset($_SESSION['error']);

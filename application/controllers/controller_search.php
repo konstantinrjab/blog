@@ -20,16 +20,18 @@ class Controller_Search extends Controller {
 	}
 
 	function action_article() {
+		$this->user    = new User($this->model->pdo);
 		$search = $this->model->checkData();
 		if ($search) {
 			$articles_id = $this->model->getArticlesId($search);
-			echo '<pre>';
-			echo '</pre>';
 			foreach ($articles_id as $id) {
 				$data['articles'][] = $this->model->get_article($id['article_id']);
 			}
 		}
 		$data['flash'] = $this->model->checkFlash();
+		foreach ($data['articles'] as &$article) {
+			$article['liked'] = $this->model->getLikeStatus($article['article_id'], $this->user->id);
+		}
 
 		$this->view->generate('search_view.php', 'template_view.php', $data);
 	}

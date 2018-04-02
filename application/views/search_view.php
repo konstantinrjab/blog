@@ -13,7 +13,7 @@
         <h1>Search</h1>
 
 		<?php
-		if ($data['articles']) {
+		if (isset($data['articles'])) {
 			foreach ($data['articles'] as $data['article']) {
 				$data['article']['intro'] = true;
 				include('article_view.php');

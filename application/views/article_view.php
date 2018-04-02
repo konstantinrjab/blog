@@ -14,7 +14,8 @@ if ($data['article']) {
   <div class="col-12">
     <div class="article card bg-light mt-3">
       <div class="article__header card-header">
-        <h3 class="title"><a href="<?= $GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/article/<?= $article['article_id'] ?>">
+        <h3 class="title"><a
+              href="<?= $GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/article/<?= $article['article_id'] ?>">
 				<?= $article['title'] ?></a>
         </h3>
 
@@ -25,7 +26,8 @@ if ($data['article']) {
       <div class="article__body card-body">
 		  <?php if ($article['intro']) : ?>
             <p><?php echo mb_strimwidth($article['text'], 0, 150, '...'); ?>
-              <a href="<?= $GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/article/<?= $article['article_id'] ?>">Read full</a></p>
+              <a href="<?= $GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/article/<?= $article['article_id'] ?>">Read
+                full</a></p>
 		  <?php else : ?>
             <p><?= $article['text'] ?></p>
 		  <?php endif; ?>
@@ -44,7 +46,7 @@ if ($data['article']) {
 			<?php endif; ?>
         </div>
       </div>
-
+<?php var_dump($article['liked']);?>
       <!-- Footer -->
       <div class="article__footer card-footer">
         <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
@@ -53,11 +55,12 @@ if ($data['article']) {
           Like
           <span id="<?= $article['article_id'] ?>"><?php echo $article['likes'] ?></span>
 			<?php
+			$style = '';
+
 			if ($article['liked'] !== true) {
 				$style = 'display: none;';
-			} else {
-				$style = '';
 			}
+
 			?>
           <i class="fa fa-heart" style="<?= $style ?>"></i>
         </button>
