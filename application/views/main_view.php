@@ -8,19 +8,23 @@
 ?>
 
 <!--search-->
-<? include('search-bar.php') ?>
+<?php include('search-bar.php') ?>
 <!--articles-->
 <div class="row">
+  <div class="col-9">
+    <h1 class="text-center">Articles</h1>
+  </div>
     <div class="col-md-3 order-md-2">
 		<?php if (isset($_SESSION['auth'])) {
 			include('sidebar-auth.php');
 		} else {
 			include('sidebar-guest.php');
 		}
-		?>
+
+	?>
     </div>
     <div class="col-md-9 order-md-1">
-        <h1>Articles</h1>
+
 
 		<?php foreach ($data['articles'] as $article) : ?>
 

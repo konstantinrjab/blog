@@ -6,6 +6,11 @@
  * Time: 17:33
  */
 
-$model = new Model($pdo);
-$data['flash'] = $model->checkFlash();
-include "info-window.php";
+include "info-window.php"; ?>
+
+<div class="row">
+  <div class="col-12">
+    <h3 class="text-center pt-4">Page not found. You can go to the <a
+          href="/">main page</a></h3>
+  </div>
+</div>

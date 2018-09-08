@@ -17,9 +17,12 @@ class Controller_Main extends Controller {
 	}
 
 	function page($page) {
+//		print_r($_SESSION);
+
 		$this->user    = new User($this->model->pdo);
 		$data          = $this->model->getSidebar($this->user);
 		$data['flash'] = $this->model->checkFlash();
+//		print_r($data);
 		$this->model->checkSignIn($this->user);
 		$this->model->checkLogOut($this->user);
 

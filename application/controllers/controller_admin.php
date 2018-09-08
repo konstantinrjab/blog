@@ -51,10 +51,15 @@ class Controller_Admin extends Controller {
 
 	function action_updateArticle() {
 		$id = $_GET['id'];
+
 		if (isset($_POST['submit'])) {
+			if(isset($_POST['image']) && !empty($_POST['image'])){
+				$this->user->deleteImage($_POST['image']);
+			}
 			$article = $this->model->checkArticle();
-			$this->user->updateArticle($id, $article);
-			$_SESSION['message'] = 'Successfully updated';
+			if($this->user->updateArticle($id, $article)){
+				$_SESSION['message'] = 'Successfully updated';
+			}
 			header('Location: http://'.$_SERVER['SERVER_NAME'].$GLOBALS['PATH_TO_ROOT_Directory_Project'].'/admin/updateArticle/?id='.$id);
 
 			return;

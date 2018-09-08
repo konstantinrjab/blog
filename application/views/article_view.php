@@ -6,7 +6,7 @@
  * Time: 17:33
  */
 
-if ($data['article']) {
+if (isset($data['article'])) {
 	$article = $data['article'];
 }
 ?>
@@ -15,18 +15,28 @@ if ($data['article']) {
     <div class="article card bg-light mt-3">
       <div class="article__header card-header">
         <h3 class="title"><a
-              href="<?= $GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/article/<?= $article['article_id'] ?>">
+              href="/article/<?= $article['article_id'] ?>">
 				<?= $article['title'] ?></a>
         </h3>
 
         <p class="tag d-inline">
-          Tags: <?php echo implode(', ', $article['tag']); ?>
+          Tags:
+          <?php if(isset($article['tag']) && !empty($article['tag'])) : ?>
+
+	          <?php foreach ($article['tag'] as $tag): ?>
+              <a href="/search/article?tag=<?=$tag?>"><?=$tag?></a>,
+	          <?php endforeach; ?>
+          <?php else :?>
+          no tags.
+          <?php endif; ?>
+
+
         </p>
       </div>
       <div class="article__body card-body">
-		  <?php if ($article['intro']) : ?>
-            <p><?php echo mb_strimwidth($article['text'], 0, 150, '...'); ?>
-              <a href="<?= $GLOBALS['PATH_TO_ROOT_Directory_Project'] ?>/article/<?= $article['article_id'] ?>">Read
+		  <?php if (isset($article['intro'])) : ?>
+            <p><?php echo substr($article['text'], 0, 150).'...'; ?>
+              <a href="/article/<?= $article['article_id'] ?>">Read
                 full</a></p>
 		  <?php else : ?>
             <p><?= $article['text'] ?></p>
@@ -36,17 +46,18 @@ if ($data['article']) {
       <!-- Images -->
       <div class="container">
         <div class="row">
-			<?php if ( !$article['intro']) : ?>
+			<?php if ( !isset($article['intro'])) : ?>
 				<?php foreach ($article['images'] as $image) : ?>
-                <div class="col-md-6 col-lg-4 col-12">
-                  <img class="article__img rounded img-fluid"
-                       src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].$GLOBALS['PATH_TO_ROOT_Directory_Project'].'/'.$image; ?>">
+                <div class="col-md-6 col-lg-4 col-12 pb-3">
+                  <div class="h-50">
+                    <img class="article__img rounded img-fluid"
+                         src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/'.$image; ?>">
+                  </div>
                 </div>
 				<?php endforeach; ?>
 			<?php endif; ?>
         </div>
       </div>
-<?php var_dump($article['liked']);?>
       <!-- Footer -->
       <div class="article__footer card-footer">
         <p class="article__date d-inline">Published: <?= $article['date'] ?>; </p>
@@ -65,7 +76,7 @@ if ($data['article']) {
           <i class="fa fa-heart" style="<?= $style ?>"></i>
         </button>
 
-		  <?php if ($article['intro'] !== true) : ?>
+		  <?php if (!isset($article['intro'])) : ?>
             <!-- Comments -->
             <div class="article__comments" article_id="<?= $article['article_id'] ?>">
                         <textarea class="comment__textarea mt-3 w-100"

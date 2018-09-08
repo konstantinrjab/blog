@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="sidebar mt-3 p-3 bg-light">
+<div class="sidebar mt-3 p-3 border bg-light">
     <p class="lead">Welcome, <?= $data['user']['name'] ?></p>
 	<?php include "info-window.php"; ?>
     <form method="post">

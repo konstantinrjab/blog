@@ -6,5 +6,5 @@
  * Time: 18:18
  */
 
-$pdo = new PDO('mysql:host=localhost;dbname=blog2', 'root', '');
+$pdo = new PDO('mysql:host=192.168.16.2;dbname=blog', 'root', 'root');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

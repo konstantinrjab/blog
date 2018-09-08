@@ -26,7 +26,7 @@ class Model {
 			$flash['message'] = $_SESSION['message'];
 			unset($_SESSION['message']);
 		}
-		if (empty($flash)) {
+		if ( !empty($flash)) {
 			return $flash;
 		} else {
 			return false;
@@ -38,8 +38,8 @@ class Model {
 FROM article 
 ORDER BY date DESC 
 LIMIT :lim OFFSET :off');
-		$lim = intval($num_on_page, 10);
-		$off = intval($page * $num_on_page-$num_on_page, 10);
+		$lim  = intval($num_on_page, 10);
+		$off  = intval($page * $num_on_page-$num_on_page, 10);
 		$stmt->bindParam(':lim', $lim, PDO::PARAM_INT);
 		$stmt->bindParam(':off', $off, PDO::PARAM_INT);
 		$stmt->execute();
@@ -129,7 +129,7 @@ WHERE article_id = :ai AND user_id = :ui');
 		$pagination['current'] = $page;
 		$stmt                  = $this->pdo->query('SELECT COUNT(article_id) AS count FROM article');
 		$result                = $stmt->fetch(PDO::FETCH_ASSOC);
-		$pagination['last'] = ceil($result['count']/$num_on_page);
+		$pagination['last']    = ceil($result['count'] / $num_on_page);
 
 		return $pagination;
 	}

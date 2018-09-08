@@ -50,7 +50,7 @@ class Model_Main extends Model {
 			if ( !$user->signIn($login, $password)) {
 				$_SESSION['error'] = 'Incorrect login/password';
 			}
-			header('Location: '.$_SERVER['HTTP_REFERER']);
 		}
+		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 }
