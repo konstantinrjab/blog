@@ -1,4 +1,4 @@
-var path = '/blog';
+var path = '';
 
 // $(document).ready(function () {
 $('button.article__button_like').click(function () {

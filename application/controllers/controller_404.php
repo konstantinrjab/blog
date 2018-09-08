@@ -8,9 +8,10 @@
 
 class Controller_404 extends Controller
 {
-	function __construct()
+	function __construct($pdo)
 	{
-		$this->view = new View();
+        parent::__construct();
+//		$this->view = new View();
 	}
 
 	function action_index()

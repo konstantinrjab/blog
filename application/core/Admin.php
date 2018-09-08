@@ -17,7 +17,7 @@ class Admin extends User {
 
 	function checkAdmin() {
 		if ($this->position !== 'admin') {
-			unset($this);
+//			unset($this);
 
 			return false;
 		} else {
@@ -45,6 +45,7 @@ class Admin extends User {
 	public function addTags($id, $tags) {
 		$used_tags = [];
 		foreach ($tags as $tag) {
+			$tag = ucfirst($tag);
 			$stmt = $this->pdo->prepare('SELECT tag_id FROM tag_name WHERE tag_name = :tag');
 			$stmt->execute(array(
 				':tag' => $tag
@@ -123,6 +124,15 @@ class Admin extends User {
 			$this->addTags($id, $article['tags']);
 		}
 		$this->addFile($id);
+
+		return true;
+	}
+
+	public function deleteImage($image) {
+		$stmt = $this->pdo->prepare('DELETE FROM images WHERE img_path = :ip');
+		$stmt->execute(array(
+			':ip' => $image,
+		));
 
 		return true;
 	}

@@ -6,11 +6,11 @@
  * Time: 17:33
  */
 ?>
-<? include('search-bar.php') ?>
+<?php include('search-bar.php') ?>
 <!--articles-->
 <div class="row">
     <div class="col-12">
-        <h1>Search</h1>
+        <h1 class="text-center">Search</h1>
 
 		<?php
 		if (isset($data['articles'])) {

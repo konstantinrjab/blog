@@ -24,8 +24,8 @@ class Controller_SignUp extends Controller {
 
 		ob_start();
 		$this->view->generate('signup_view.php', 'template_view.php', $data);
-		if($data['flash']['message']){
-			header('refresh:3;url= http://'.$_SERVER['SERVER_NAME']);
+		if(isset($data['flash']['message']) && !empty($data['flash']['message'])){
+			header('refresh:3;url=http://'.$_SERVER['SERVER_NAME']);
 			ob_end_flush();
 		}
 	}

@@ -17,14 +17,14 @@ class Model_Search extends Model {
 	}
 
 	public function checkData() {
-		$search = null;
-		if ( !isset($_POST['search'])) {
-			return false;
+		$search[] = '';
+		if (isset($_GET['tag']) && !empty(trim($_GET['tag']))) {
+			$search['tag'] = $_GET['tag'];
 		}
-		if ( !empty(trim($_POST['search-title']))) {
+		if (isset($_POST['search-title']) && !empty(trim($_POST['search-title']))) {
 			$search['title'] = $_POST['search-title'];
 		}
-		if ( !empty(trim($_POST['search-date']))) {
+		if (isset($_POST['search-date']) && !empty(trim($_POST['search-date']))) {
 			$search['date'] = $_POST['search-date'];
 		}
 
@@ -32,19 +32,21 @@ class Model_Search extends Model {
 	}
 
 	public function getArticlesId($search) {
-		$query = '';
+		$query = 'SELECT article_id FROM article WHERE ';
 		if (isset($search['date'])) {
-			$query = 'date = \''.$search['date'].'\'';
-			if ($search['title']) {
+			$query .= 'date = \''.$search['date'].'\'';
+			if ( !empty($search['title'])) {
 				$query .= ' AND ';
 			}
 		}
-
-		if ($search['title']) {
-			$query .= 'title = \''.$search['title'].'\'';
+		if (isset($search['title']) && !empty($search['title'])) {
+			$query .= 'title LIKE \'%'.$search['title'].'%\'';
 		}
-		$query = 'SELECT article_id FROM article WHERE '.$query;
-		$stmt  = $this->pdo->prepare($query);
+		if (isset($search['tag']) && !empty($search['tag'])) {
+			$query = 'SELECT tag.article_id FROM tag JOIN tag_name ON tag.tag_id = tag_name.tag_id WHERE tag_name.tag_name = \''.$search['tag'].'\'';
+		}
+
+		$stmt = $this->pdo->prepare($query);
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

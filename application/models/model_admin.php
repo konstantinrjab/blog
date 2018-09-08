@@ -19,16 +19,19 @@ class Model_Admin extends Model {
 	public function checkArticle() {
 
 		//check text
-		if (empty(trim($_POST['title'])) || empty(trim($_POST['text']))) {
-			return false;
-		} else {
-			$article['title'] = $_POST['title'];
-			$article['text']  = $_POST['text'];
-			$article['tags']  = preg_split("/[\s,;]+/", $_POST['tag']);
-			//очистка от пустых значений
-			$article['tags'] = array_diff($article['tags'], array(''));
+		$return = false;
+		if (isset($_POST['title']) || isset($_POST['text'])) {
+			if ( !empty(trim($_POST['title'])) || !empty(trim($_POST['text']))) {
+				$article['title'] = $_POST['title'];
+				$article['text']  = $_POST['text'];
+				$article['tags']  = preg_split("/[\s,;]+/", $_POST['tag']);
+				//очистка от пустых значений
+				$article['tags'] = array_diff($article['tags'], array(''));
 
-			return $article;
+				$return = $article;
+			}
 		}
+
+		return $return;
 	}
 }
